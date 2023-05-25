@@ -1,0 +1,27 @@
+{
+  "name": "tree-sitter-hypr",
+  "version": "1.0.0",
+  "description": "Treesitter parser for Hyprland config file",
+  "main": "grammar.js",
+  "scripts": {
+    "test": "tree-sitter test && script/parse-examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fymyte/tree-sitter-hypr.git"
+  },
+  "keywords": [
+    "parser",
+    "Hyprland",
+    "hypr"
+  ],
+  "author": "Pierrick Guillaume <pierguill@gmail.com> (https://github.com/Fymyte)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Fymyte/tree-sitter-hypr/issues"
+  },
+  "homepage": "https://github.com/Fymyte/tree-sitter-hypr#readme",
+  "dependencies": {
+    "nan": "^2.17.0"
+  }
+}

@@ -1,0 +1,125 @@
+=====================
+Integer value
+=====================
+
+general {
+  border_size = 1
+  border_size = 100
+  border_size = 0
+  border_size = 9999999999999
+  border_size = -9999999999
+}
+
+---
+
+(config_file
+  (variable_section
+    (section_variable (int))
+    (section_variable (int))
+    (section_variable (int))
+    (section_variable (int))
+    (section_variable (int))))
+
+=====================
+Boolean value
+=====================
+
+general {
+  no_border_on_floating = true
+  no_border_on_floating = false
+  no_border_on_floating = yes
+  no_border_on_floating = no
+  no_border_on_floating = on
+  no_border_on_floating = off
+  no_border_on_floating = 1
+  no_border_on_floating = 0
+}
+
+---
+
+(config_file
+  (variable_section
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))))
+
+=====================
+Floating point value
+=====================
+
+decoration {
+  active_opacity = 1
+  active_opacity = -1
+  active_opacity = 1.
+  active_opacity = -1.
+  active_opacity = .0
+  active_opacity = -.0
+  active_opacity = 1.0
+  active_opacity = -1.0
+  active_opacity = 0.12345
+  active_opacity = -0.12345
+  active_opacity = 12345.12345
+  active_opacity = -12345.12345
+}
+
+---
+
+(config_file
+  (variable_section
+    (section_variable (float))
+    (section_variable (float))
+    (section_variable (float))
+    (section_variable (float))
+    (section_variable (float))
+    (section_variable (float))
+    (section_variable (float))
+    (section_variable (float))
+    (section_variable (float))
+    (section_variable (float))
+    (section_variable (float))
+    (section_variable (float))))
+
+=====================
+Color value
+=====================
+
+decoration {
+  col.shadow = rgb(abcdef)
+  col.shadow = rgba(01234567)
+  col.shadow = 0x89abcdef
+}
+
+---
+
+(config_file
+  (variable_section
+    (section_variable (color (color_rgb)))
+    (section_variable (color (color_rgba)))
+    (section_variable (color (color_hex)))))
+
+=====================
+Gradient value
+=====================
+
+general {
+  col.active_border = rgb(000000)
+  col.active_border = rgb(000000) rgb(000000) rgb(000000)
+  col.active_border = rgb(000000) 1deg
+  col.active_border = rgb(000000) -1deg
+  col.active_border = rgb(000000) 0xffffffff 366deg
+}
+
+---
+
+(config_file
+  (variable_section
+    (section_variable (gradient (color (color_rgb))))
+    (section_variable (gradient (color (color_rgb)) (color (color_rgb)) (color (color_rgb))))
+    (section_variable (gradient (color (color_rgb)) (degree (int))))
+    (section_variable (gradient (color (color_rgb)) (degree (int))))
+    (section_variable (gradient (color (color_rgb)) (color (color_hex)) (degree (int))))))

@@ -1,0 +1,687 @@
+[
+  {
+    "type": "bool",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "color",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "color_hex",
+          "named": true
+        },
+        {
+          "type": "color_rgb",
+          "named": true
+        },
+        {
+          "type": "color_rgba",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "color_hex",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "color_rgb",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "color_rgba",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "config_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "variable_section",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "degree",
+    "named": true,
+    "fields": {
+      "unit": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "deg",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "int",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gradient",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "color",
+          "named": true
+        },
+        {
+          "type": "degree",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mod",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "section_variable",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "active_opacity",
+            "named": false
+          },
+          {
+            "type": "apply_sens_to_raw",
+            "named": false
+          },
+          {
+            "type": "blur",
+            "named": false
+          },
+          {
+            "type": "blur_ignore_opacity",
+            "named": false
+          },
+          {
+            "type": "blur_new_optimizations",
+            "named": false
+          },
+          {
+            "type": "blur_passes",
+            "named": false
+          },
+          {
+            "type": "blur_size",
+            "named": false
+          },
+          {
+            "type": "blur_xray",
+            "named": false
+          },
+          {
+            "type": "border_size",
+            "named": false
+          },
+          {
+            "type": "col.active_border",
+            "named": false
+          },
+          {
+            "type": "col.group_border",
+            "named": false
+          },
+          {
+            "type": "col.group_border_active",
+            "named": false
+          },
+          {
+            "type": "col.inactive_border",
+            "named": false
+          },
+          {
+            "type": "col.shadow",
+            "named": false
+          },
+          {
+            "type": "col.shadow_inactive",
+            "named": false
+          },
+          {
+            "type": "cursor_inactive_timeout",
+            "named": false
+          },
+          {
+            "type": "dim_around",
+            "named": false
+          },
+          {
+            "type": "dim_inactive",
+            "named": false
+          },
+          {
+            "type": "dim_special",
+            "named": false
+          },
+          {
+            "type": "dim_strength",
+            "named": false
+          },
+          {
+            "type": "drop_shadow",
+            "named": false
+          },
+          {
+            "type": "extend_border_grab_area",
+            "named": false
+          },
+          {
+            "type": "fullscreen_opacity",
+            "named": false
+          },
+          {
+            "type": "gaps_in",
+            "named": false
+          },
+          {
+            "type": "gaps_out",
+            "named": false
+          },
+          {
+            "type": "hover_icon_on_border",
+            "named": false
+          },
+          {
+            "type": "inactive_opacity",
+            "named": false
+          },
+          {
+            "type": "layout",
+            "named": false
+          },
+          {
+            "type": "multisample_edges",
+            "named": false
+          },
+          {
+            "type": "no_border_on_floating",
+            "named": false
+          },
+          {
+            "type": "no_cursor_warps",
+            "named": false
+          },
+          {
+            "type": "no_focus_fallback",
+            "named": false
+          },
+          {
+            "type": "resize_on_border",
+            "named": false
+          },
+          {
+            "type": "rounding",
+            "named": false
+          },
+          {
+            "type": "screen_shader",
+            "named": false
+          },
+          {
+            "type": "sensitivity",
+            "named": false
+          },
+          {
+            "type": "shadow_ignore_window",
+            "named": false
+          },
+          {
+            "type": "shadow_offset",
+            "named": false
+          },
+          {
+            "type": "shadow_range",
+            "named": false
+          },
+          {
+            "type": "shadow_render_power",
+            "named": false
+          },
+          {
+            "type": "shadow_scale",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "color",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "gradient",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "str",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        },
+        {
+          "type": "vec2",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variable_reference",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "variable_section",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "decoration",
+            "named": false
+          },
+          {
+            "type": "general",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "section_variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "vec2",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "float",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "#",
+    "named": false
+  },
+  {
+    "type": "$",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "0",
+    "named": false
+  },
+  {
+    "type": "0x",
+    "named": false
+  },
+  {
+    "type": "1",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "ALT",
+    "named": false
+  },
+  {
+    "type": "CAPS",
+    "named": false
+  },
+  {
+    "type": "CONTROL",
+    "named": false
+  },
+  {
+    "type": "CTRL",
+    "named": false
+  },
+  {
+    "type": "LOGO",
+    "named": false
+  },
+  {
+    "type": "MOD2",
+    "named": false
+  },
+  {
+    "type": "MOD3",
+    "named": false
+  },
+  {
+    "type": "MOD4",
+    "named": false
+  },
+  {
+    "type": "MOD5",
+    "named": false
+  },
+  {
+    "type": "SHIFT",
+    "named": false
+  },
+  {
+    "type": "SUPER",
+    "named": false
+  },
+  {
+    "type": "WIN",
+    "named": false
+  },
+  {
+    "type": "active_opacity",
+    "named": false
+  },
+  {
+    "type": "apply_sens_to_raw",
+    "named": false
+  },
+  {
+    "type": "blur",
+    "named": false
+  },
+  {
+    "type": "blur_ignore_opacity",
+    "named": false
+  },
+  {
+    "type": "blur_new_optimizations",
+    "named": false
+  },
+  {
+    "type": "blur_passes",
+    "named": false
+  },
+  {
+    "type": "blur_size",
+    "named": false
+  },
+  {
+    "type": "blur_xray",
+    "named": false
+  },
+  {
+    "type": "border_size",
+    "named": false
+  },
+  {
+    "type": "col.active_border",
+    "named": false
+  },
+  {
+    "type": "col.group_border",
+    "named": false
+  },
+  {
+    "type": "col.group_border_active",
+    "named": false
+  },
+  {
+    "type": "col.inactive_border",
+    "named": false
+  },
+  {
+    "type": "col.shadow",
+    "named": false
+  },
+  {
+    "type": "col.shadow_inactive",
+    "named": false
+  },
+  {
+    "type": "cursor_inactive_timeout",
+    "named": false
+  },
+  {
+    "type": "decoration",
+    "named": false
+  },
+  {
+    "type": "deg",
+    "named": false
+  },
+  {
+    "type": "dim_around",
+    "named": false
+  },
+  {
+    "type": "dim_inactive",
+    "named": false
+  },
+  {
+    "type": "dim_special",
+    "named": false
+  },
+  {
+    "type": "dim_strength",
+    "named": false
+  },
+  {
+    "type": "drop_shadow",
+    "named": false
+  },
+  {
+    "type": "extend_border_grab_area",
+    "named": false
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
+    "type": "float",
+    "named": true
+  },
+  {
+    "type": "fullscreen_opacity",
+    "named": false
+  },
+  {
+    "type": "gaps_in",
+    "named": false
+  },
+  {
+    "type": "gaps_out",
+    "named": false
+  },
+  {
+    "type": "general",
+    "named": false
+  },
+  {
+    "type": "hover_icon_on_border",
+    "named": false
+  },
+  {
+    "type": "inactive_opacity",
+    "named": false
+  },
+  {
+    "type": "int",
+    "named": true
+  },
+  {
+    "type": "layout",
+    "named": false
+  },
+  {
+    "type": "multisample_edges",
+    "named": false
+  },
+  {
+    "type": "no",
+    "named": false
+  },
+  {
+    "type": "no_border_on_floating",
+    "named": false
+  },
+  {
+    "type": "no_cursor_warps",
+    "named": false
+  },
+  {
+    "type": "no_focus_fallback",
+    "named": false
+  },
+  {
+    "type": "off",
+    "named": false
+  },
+  {
+    "type": "on",
+    "named": false
+  },
+  {
+    "type": "resize_on_border",
+    "named": false
+  },
+  {
+    "type": "rgb",
+    "named": false
+  },
+  {
+    "type": "rgba",
+    "named": false
+  },
+  {
+    "type": "rounding",
+    "named": false
+  },
+  {
+    "type": "screen_shader",
+    "named": false
+  },
+  {
+    "type": "sensitivity",
+    "named": false
+  },
+  {
+    "type": "shadow_ignore_window",
+    "named": false
+  },
+  {
+    "type": "shadow_offset",
+    "named": false
+  },
+  {
+    "type": "shadow_range",
+    "named": false
+  },
+  {
+    "type": "shadow_render_power",
+    "named": false
+  },
+  {
+    "type": "shadow_scale",
+    "named": false
+  },
+  {
+    "type": "str",
+    "named": true
+  },
+  {
+    "type": "true",
+    "named": false
+  },
+  {
+    "type": "yes",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]
