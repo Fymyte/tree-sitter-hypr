@@ -118,10 +118,34 @@
     "fields": {
       "name": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
+            "type": "accel_profile",
+            "named": false
+          },
+          {
             "type": "active_opacity",
+            "named": false
+          },
+          {
+            "type": "allow_session_lock_restore",
+            "named": false
+          },
+          {
+            "type": "allow_workspace_cycles",
+            "named": false
+          },
+          {
+            "type": "always_follow_on_dnd",
+            "named": false
+          },
+          {
+            "type": "animate_manual_resizes",
+            "named": false
+          },
+          {
+            "type": "animate_mouse_windowdragging",
             "named": false
           },
           {
@@ -157,6 +181,10 @@
             "named": false
           },
           {
+            "type": "clickfinger_behavior",
+            "named": false
+          },
+          {
             "type": "col.active_border",
             "named": false
           },
@@ -185,6 +213,22 @@
             "named": false
           },
           {
+            "type": "cursor_zoom_factor",
+            "named": false
+          },
+          {
+            "type": "cursor_zoom_rigid",
+            "named": false
+          },
+          {
+            "type": "damage_blink",
+            "named": false
+          },
+          {
+            "type": "damage_tracking",
+            "named": false
+          },
+          {
             "type": "dim_around",
             "named": false
           },
@@ -201,11 +245,71 @@
             "named": false
           },
           {
+            "type": "disable_autoreload",
+            "named": false
+          },
+          {
+            "type": "disable_hyprland_logo",
+            "named": false
+          },
+          {
+            "type": "disable_logs",
+            "named": false
+          },
+          {
+            "type": "disable_splash_rendering",
+            "named": false
+          },
+          {
+            "type": "disable_time",
+            "named": false
+          },
+          {
+            "type": "disable_while_typing",
+            "named": false
+          },
+          {
+            "type": "drag_lock",
+            "named": false
+          },
+          {
             "type": "drop_shadow",
             "named": false
           },
           {
+            "type": "enable_stdout_logs",
+            "named": false
+          },
+          {
+            "type": "enable_swallow",
+            "named": false
+          },
+          {
+            "type": "enabled",
+            "named": false
+          },
+          {
             "type": "extend_border_grab_area",
+            "named": false
+          },
+          {
+            "type": "float_switch_override_focus",
+            "named": false
+          },
+          {
+            "type": "focus_on_activate",
+            "named": false
+          },
+          {
+            "type": "focus_preferred_method",
+            "named": false
+          },
+          {
+            "type": "follow_mouse",
+            "named": false
+          },
+          {
+            "type": "force_no_accel",
             "named": false
           },
           {
@@ -221,6 +325,18 @@
             "named": false
           },
           {
+            "type": "groupbar_gradients",
+            "named": false
+          },
+          {
+            "type": "groupbar_titles_font_size",
+            "named": false
+          },
+          {
+            "type": "hide_cursor_on_touch",
+            "named": false
+          },
+          {
             "type": "hover_icon_on_border",
             "named": false
           },
@@ -229,11 +345,71 @@
             "named": false
           },
           {
+            "type": "kb_file",
+            "named": false
+          },
+          {
+            "type": "kb_layout",
+            "named": false
+          },
+          {
+            "type": "kb_model",
+            "named": false
+          },
+          {
+            "type": "kb_options",
+            "named": false
+          },
+          {
+            "type": "kb_rules",
+            "named": false
+          },
+          {
+            "type": "kb_variant",
+            "named": false
+          },
+          {
+            "type": "key_press_enables_dpms",
+            "named": false
+          },
+          {
+            "type": "layers_hog_keyboard_focus",
+            "named": false
+          },
+          {
             "type": "layout",
             "named": false
           },
           {
+            "type": "left_handed",
+            "named": false
+          },
+          {
+            "type": "manual_crash",
+            "named": false
+          },
+          {
+            "type": "middle_button_emulation",
+            "named": false
+          },
+          {
+            "type": "mouse_move_enables_dpms",
+            "named": false
+          },
+          {
+            "type": "mouse_move_focuses_monitor",
+            "named": false
+          },
+          {
+            "type": "mouse_refocus",
+            "named": false
+          },
+          {
             "type": "multisample_edges",
+            "named": false
+          },
+          {
+            "type": "natural_scroll",
             "named": false
           },
           {
@@ -245,7 +421,47 @@
             "named": false
           },
           {
+            "type": "no_direct_scanout",
+            "named": false
+          },
+          {
             "type": "no_focus_fallback",
+            "named": false
+          },
+          {
+            "type": "numlock_by_default",
+            "named": false
+          },
+          {
+            "type": "output",
+            "named": false
+          },
+          {
+            "type": "overlay",
+            "named": false
+          },
+          {
+            "type": "pass_mouse_when_bound",
+            "named": false
+          },
+          {
+            "type": "render_ahead_of_time",
+            "named": false
+          },
+          {
+            "type": "render_ahead_safezone",
+            "named": false
+          },
+          {
+            "type": "render_titles_in_groupbar",
+            "named": false
+          },
+          {
+            "type": "repeat_delay",
+            "named": false
+          },
+          {
+            "type": "repeat_rate",
             "named": false
           },
           {
@@ -258,6 +474,22 @@
           },
           {
             "type": "screen_shader",
+            "named": false
+          },
+          {
+            "type": "scroll_button",
+            "named": false
+          },
+          {
+            "type": "scroll_event_delay",
+            "named": false
+          },
+          {
+            "type": "scroll_factor",
+            "named": false
+          },
+          {
+            "type": "scroll_method",
             "named": false
           },
           {
@@ -283,13 +515,89 @@
           {
             "type": "shadow_scale",
             "named": false
+          },
+          {
+            "type": "suppress_portal_warnings",
+            "named": false
+          },
+          {
+            "type": "swallow_exception_regex",
+            "named": false
+          },
+          {
+            "type": "swallow_regex",
+            "named": false
+          },
+          {
+            "type": "tap-and-drag",
+            "named": false
+          },
+          {
+            "type": "tap-to-click",
+            "named": false
+          },
+          {
+            "type": "tap_button_map",
+            "named": false
+          },
+          {
+            "type": "transform",
+            "named": false
+          },
+          {
+            "type": "vfr",
+            "named": false
+          },
+          {
+            "type": "vrr",
+            "named": false
+          },
+          {
+            "type": "workspace_back_and_forth",
+            "named": false
+          },
+          {
+            "type": "workspace_swipe",
+            "named": false
+          },
+          {
+            "type": "workspace_swipe_cancel_ratio",
+            "named": false
+          },
+          {
+            "type": "workspace_swipe_create_new",
+            "named": false
+          },
+          {
+            "type": "workspace_swipe_distance",
+            "named": false
+          },
+          {
+            "type": "workspace_swipe_fingers",
+            "named": false
+          },
+          {
+            "type": "workspace_swipe_forever",
+            "named": false
+          },
+          {
+            "type": "workspace_swipe_invert",
+            "named": false
+          },
+          {
+            "type": "workspace_swipe_min_speed_to_force",
+            "named": false
+          },
+          {
+            "type": "workspace_swipe_numbered",
+            "named": false
           }
         ]
       }
     },
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "bool",
@@ -340,11 +648,43 @@
         "required": true,
         "types": [
           {
+            "type": "animation",
+            "named": false
+          },
+          {
+            "type": "binds",
+            "named": false
+          },
+          {
+            "type": "debug",
+            "named": false
+          },
+          {
             "type": "decoration",
             "named": false
           },
           {
             "type": "general",
+            "named": false
+          },
+          {
+            "type": "gestures",
+            "named": false
+          },
+          {
+            "type": "input",
+            "named": false
+          },
+          {
+            "type": "misc",
+            "named": false
+          },
+          {
+            "type": "touchdevice",
+            "named": false
+          },
+          {
+            "type": "touchpad",
             "named": false
           }
         ]
@@ -356,6 +696,10 @@
       "types": [
         {
           "type": "section_variable",
+          "named": true
+        },
+        {
+          "type": "variable_section",
           "named": true
         }
       ]
@@ -457,11 +801,43 @@
     "named": false
   },
   {
+    "type": "accel_profile",
+    "named": false
+  },
+  {
     "type": "active_opacity",
     "named": false
   },
   {
+    "type": "allow_session_lock_restore",
+    "named": false
+  },
+  {
+    "type": "allow_workspace_cycles",
+    "named": false
+  },
+  {
+    "type": "always_follow_on_dnd",
+    "named": false
+  },
+  {
+    "type": "animate_manual_resizes",
+    "named": false
+  },
+  {
+    "type": "animate_mouse_windowdragging",
+    "named": false
+  },
+  {
+    "type": "animation",
+    "named": false
+  },
+  {
     "type": "apply_sens_to_raw",
+    "named": false
+  },
+  {
+    "type": "binds",
     "named": false
   },
   {
@@ -493,6 +869,10 @@
     "named": false
   },
   {
+    "type": "clickfinger_behavior",
+    "named": false
+  },
+  {
     "type": "col.active_border",
     "named": false
   },
@@ -521,6 +901,26 @@
     "named": false
   },
   {
+    "type": "cursor_zoom_factor",
+    "named": false
+  },
+  {
+    "type": "cursor_zoom_rigid",
+    "named": false
+  },
+  {
+    "type": "damage_blink",
+    "named": false
+  },
+  {
+    "type": "damage_tracking",
+    "named": false
+  },
+  {
+    "type": "debug",
+    "named": false
+  },
+  {
     "type": "decoration",
     "named": false
   },
@@ -545,7 +945,47 @@
     "named": false
   },
   {
+    "type": "disable_autoreload",
+    "named": false
+  },
+  {
+    "type": "disable_hyprland_logo",
+    "named": false
+  },
+  {
+    "type": "disable_logs",
+    "named": false
+  },
+  {
+    "type": "disable_splash_rendering",
+    "named": false
+  },
+  {
+    "type": "disable_time",
+    "named": false
+  },
+  {
+    "type": "disable_while_typing",
+    "named": false
+  },
+  {
+    "type": "drag_lock",
+    "named": false
+  },
+  {
     "type": "drop_shadow",
+    "named": false
+  },
+  {
+    "type": "enable_stdout_logs",
+    "named": false
+  },
+  {
+    "type": "enable_swallow",
+    "named": false
+  },
+  {
+    "type": "enabled",
     "named": false
   },
   {
@@ -559,6 +999,26 @@
   {
     "type": "float",
     "named": true
+  },
+  {
+    "type": "float_switch_override_focus",
+    "named": false
+  },
+  {
+    "type": "focus_on_activate",
+    "named": false
+  },
+  {
+    "type": "focus_preferred_method",
+    "named": false
+  },
+  {
+    "type": "follow_mouse",
+    "named": false
+  },
+  {
+    "type": "force_no_accel",
+    "named": false
   },
   {
     "type": "fullscreen_opacity",
@@ -577,6 +1037,22 @@
     "named": false
   },
   {
+    "type": "gestures",
+    "named": false
+  },
+  {
+    "type": "groupbar_gradients",
+    "named": false
+  },
+  {
+    "type": "groupbar_titles_font_size",
+    "named": false
+  },
+  {
+    "type": "hide_cursor_on_touch",
+    "named": false
+  },
+  {
     "type": "hover_icon_on_border",
     "named": false
   },
@@ -585,15 +1061,83 @@
     "named": false
   },
   {
+    "type": "input",
+    "named": false
+  },
+  {
     "type": "int",
     "named": true
+  },
+  {
+    "type": "kb_file",
+    "named": false
+  },
+  {
+    "type": "kb_layout",
+    "named": false
+  },
+  {
+    "type": "kb_model",
+    "named": false
+  },
+  {
+    "type": "kb_options",
+    "named": false
+  },
+  {
+    "type": "kb_rules",
+    "named": false
+  },
+  {
+    "type": "kb_variant",
+    "named": false
+  },
+  {
+    "type": "key_press_enables_dpms",
+    "named": false
+  },
+  {
+    "type": "layers_hog_keyboard_focus",
+    "named": false
   },
   {
     "type": "layout",
     "named": false
   },
   {
+    "type": "left_handed",
+    "named": false
+  },
+  {
+    "type": "manual_crash",
+    "named": false
+  },
+  {
+    "type": "middle_button_emulation",
+    "named": false
+  },
+  {
+    "type": "misc",
+    "named": false
+  },
+  {
+    "type": "mouse_move_enables_dpms",
+    "named": false
+  },
+  {
+    "type": "mouse_move_focuses_monitor",
+    "named": false
+  },
+  {
+    "type": "mouse_refocus",
+    "named": false
+  },
+  {
     "type": "multisample_edges",
+    "named": false
+  },
+  {
+    "type": "natural_scroll",
     "named": false
   },
   {
@@ -609,7 +1153,15 @@
     "named": false
   },
   {
+    "type": "no_direct_scanout",
+    "named": false
+  },
+  {
     "type": "no_focus_fallback",
+    "named": false
+  },
+  {
+    "type": "numlock_by_default",
     "named": false
   },
   {
@@ -618,6 +1170,38 @@
   },
   {
     "type": "on",
+    "named": false
+  },
+  {
+    "type": "output",
+    "named": false
+  },
+  {
+    "type": "overlay",
+    "named": false
+  },
+  {
+    "type": "pass_mouse_when_bound",
+    "named": false
+  },
+  {
+    "type": "render_ahead_of_time",
+    "named": false
+  },
+  {
+    "type": "render_ahead_safezone",
+    "named": false
+  },
+  {
+    "type": "render_titles_in_groupbar",
+    "named": false
+  },
+  {
+    "type": "repeat_delay",
+    "named": false
+  },
+  {
+    "type": "repeat_rate",
     "named": false
   },
   {
@@ -638,6 +1222,22 @@
   },
   {
     "type": "screen_shader",
+    "named": false
+  },
+  {
+    "type": "scroll_button",
+    "named": false
+  },
+  {
+    "type": "scroll_event_delay",
+    "named": false
+  },
+  {
+    "type": "scroll_factor",
+    "named": false
+  },
+  {
+    "type": "scroll_method",
     "named": false
   },
   {
@@ -669,7 +1269,91 @@
     "named": true
   },
   {
+    "type": "suppress_portal_warnings",
+    "named": false
+  },
+  {
+    "type": "swallow_exception_regex",
+    "named": false
+  },
+  {
+    "type": "swallow_regex",
+    "named": false
+  },
+  {
+    "type": "tap-and-drag",
+    "named": false
+  },
+  {
+    "type": "tap-to-click",
+    "named": false
+  },
+  {
+    "type": "tap_button_map",
+    "named": false
+  },
+  {
+    "type": "touchdevice",
+    "named": false
+  },
+  {
+    "type": "touchpad",
+    "named": false
+  },
+  {
+    "type": "transform",
+    "named": false
+  },
+  {
     "type": "true",
+    "named": false
+  },
+  {
+    "type": "vfr",
+    "named": false
+  },
+  {
+    "type": "vrr",
+    "named": false
+  },
+  {
+    "type": "workspace_back_and_forth",
+    "named": false
+  },
+  {
+    "type": "workspace_swipe",
+    "named": false
+  },
+  {
+    "type": "workspace_swipe_cancel_ratio",
+    "named": false
+  },
+  {
+    "type": "workspace_swipe_create_new",
+    "named": false
+  },
+  {
+    "type": "workspace_swipe_distance",
+    "named": false
+  },
+  {
+    "type": "workspace_swipe_fingers",
+    "named": false
+  },
+  {
+    "type": "workspace_swipe_forever",
+    "named": false
+  },
+  {
+    "type": "workspace_swipe_invert",
+    "named": false
+  },
+  {
+    "type": "workspace_swipe_min_speed_to_force",
+    "named": false
+  },
+  {
+    "type": "workspace_swipe_numbered",
     "named": false
   },
   {

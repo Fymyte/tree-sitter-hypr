@@ -123,3 +123,489 @@ general {
     (section_variable (gradient (color (color_rgb)) (degree (int))))
     (section_variable (gradient (color (color_rgb)) (degree (int))))
     (section_variable (gradient (color (color_rgb)) (color (color_hex)) (degree (int))))))
+
+==============================
+General section all default
+==============================
+
+general {
+  sensitivity = 1.0
+  border_size = 1
+  no_border_on_floating = false
+  gaps_in = 5
+  gaps_out = 20
+  col.inactive_border = 0xffffffff
+  col.active_border = 0xff444444
+  col.group_border = 0x66777700
+  col.group_border_active = 0x66ffff00
+  cursor_inactive_timeout = 0
+  layout = dwindle
+  no_cursor_warps = false
+  no_focus_fallback = false
+  apply_sens_to_raw = false
+  resize_on_border = false
+  extend_border_grab_area = 15
+  hover_icon_on_border = true
+}
+
+---
+
+(config_file
+  (variable_section
+    (section_variable (float))
+    (section_variable (int))
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (int))
+    (section_variable (gradient (color (color_hex))))
+    (section_variable (gradient (color (color_hex))))
+    (section_variable (gradient (color (color_hex))))
+    (section_variable (gradient (color (color_hex))))
+    (section_variable (int))
+    (section_variable (str))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (bool))))
+
+
+==============================
+Decoration section all default
+==============================
+
+decoration {
+  rounding = 0
+  multisample_edges = true
+  active_opacity = 1.0
+  inactive_opacity = 1.0
+  fullscreen_opacity = 1.0
+  blur = true
+  blur_size = 8
+  blur_passes = 1
+  blur_ignore_opacity = false
+  blur_new_optimizations = true
+  blur_xray = false
+  drop_shadow = true
+  shadow_range = 4
+  shadow_render_power = 3
+  shadow_ignore_window = true
+  col.shadow = 0xee1a1a1a
+  col.shadow_inactive = 0x00000000
+  shadow_offset = 0 0
+  shadow_scale = 1.0
+  dim_inactive = false
+  dim_strength = 0.5
+  dim_special = 0.2
+  dim_around = 0.4
+  screen_shader = [[Empty]]
+}
+
+---
+
+(config_file
+  (variable_section
+    (section_variable (int))
+    (section_variable (bool))
+    (section_variable (float))
+    (section_variable (float))
+    (section_variable (float))
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (int))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (int))
+    (section_variable (bool))
+    (section_variable (color (color_hex)))
+    (section_variable (color (color_hex)))
+    (section_variable (vec2 (float) (float)))
+    (section_variable (float))
+    (section_variable (bool))
+    (section_variable (float))
+    (section_variable (float))
+    (section_variable (float))
+    (section_variable (str))))
+
+==============================
+Animation section all default
+==============================
+
+animation {
+  enabled = true
+}
+
+---
+
+(config_file
+  (variable_section
+    (section_variable (bool))))
+
+==============================
+Input section all default
+==============================
+
+input {
+  kb_model = [[Empty]]
+  kb_layout = us
+  kb_variant = [[Empty]]
+  kb_options = [[Empty]]
+  kb_rules = [[Empty]]
+  kb_file = [[Empty]]
+  numlock_by_default = false
+  repeat_rate = 25
+  repeat_delay = 600
+  sensitivity = 0.0
+  accel_profile = [[Empty]]
+  force_no_accel = false
+  left_handed = false
+  scroll_method = [[Empty]]
+  scroll_button = 0
+  natural_scroll = false
+  follow_mouse = 1
+  mouse_refocus = true
+  float_switch_override_focus = 1
+}
+
+---
+
+(config_file
+  (variable_section
+    (section_variable (str))
+    (section_variable (str))
+    (section_variable (str))
+    (section_variable (str))
+    (section_variable (str))
+    (section_variable (str))
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (int))
+    (section_variable (float))
+    (section_variable (str))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (str))
+    (section_variable (int))
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (bool))
+    (section_variable (int))))
+
+========================================
+Input touchpad section all default
+========================================
+
+input {
+  touchpad {
+    disable_while_typing = true
+    natural_scroll = false
+    scroll_factor = 1.0
+    middle_button_emulation = false
+    tap_button_map = [[Empty]]
+    clickfinger_behavior = false
+    tap-to-click = true
+    drag_lock = false
+    tap-and-drag = false
+  }
+}
+
+---
+
+(config_file
+  (variable_section
+    (variable_section
+      (section_variable (bool))
+      (section_variable (bool))
+      (section_variable (float))
+      (section_variable (bool))
+      (section_variable (str))
+      (section_variable (bool))
+      (section_variable (bool))
+      (section_variable (bool))
+      (section_variable (bool)))))
+
+========================================
+Input touchdevice section all default
+========================================
+
+input {
+  touchdevice {
+    transform = 0
+    output = [[Empty]
+  }
+}
+
+---
+
+(config_file
+  (variable_section
+    (variable_section
+      (section_variable (int))
+      (section_variable (str)))))
+
+=========================================
+Input section and subsections all default
+=========================================
+
+input {
+  kb_model = [[Empty]]
+  kb_layout = us
+  kb_variant = [[Empty]]
+  kb_options = [[Empty]]
+  kb_rules = [[Empty]]
+  kb_file = [[Empty]]
+  numlock_by_default = false
+  repeat_rate = 25
+  repeat_delay = 600
+  sensitivity = 0.0
+  accel_profile = [[Empty]]
+  force_no_accel = false
+  left_handed = false
+  scroll_method = [[Empty]]
+  scroll_button = 0
+  natural_scroll = false
+  follow_mouse = 1
+  mouse_refocus = true
+  float_switch_override_focus = 1
+
+  touchpad {
+    disable_while_typing = true
+    natural_scroll = false
+    scroll_factor = 1.0
+    middle_button_emulation = false
+    tap_button_map = [[Empty]]
+    clickfinger_behavior = false
+    tap-to-click = true
+    drag_lock = false
+    tap-and-drag = false
+  }
+
+  touchdevice {
+    transform = 0
+    output = [[Empty]
+  }
+}
+
+---
+
+(config_file
+  (variable_section
+    (section_variable (str))
+    (section_variable (str))
+    (section_variable (str))
+    (section_variable (str))
+    (section_variable (str))
+    (section_variable (str))
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (int))
+    (section_variable (float))
+    (section_variable (str))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (str))
+    (section_variable (int))
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (bool))
+    (section_variable (int))
+    (variable_section
+      (section_variable (bool))
+      (section_variable (bool))
+      (section_variable (float))
+      (section_variable (bool))
+      (section_variable (str))
+      (section_variable (bool))
+      (section_variable (bool))
+      (section_variable (bool))
+      (section_variable (bool)))
+    (variable_section
+     (section_variable (int))
+     (section_variable (str)))))
+
+==============================
+Gestures section all default
+==============================
+
+gestures {
+  workspace_swipe = false
+  workspace_swipe_fingers = 3
+  workspace_swipe_distance = 300
+  workspace_swipe_invert = true
+  workspace_swipe_min_speed_to_force = 30
+  workspace_swipe_cancel_ratio = 0.5
+  workspace_swipe_create_new = true
+  workspace_swipe_forever = false
+  workspace_swipe_numbered = false
+}
+
+---
+
+(config_file
+  (variable_section
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (int))
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (float))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))))
+
+==============================
+Misc section all default
+==============================
+
+misc {
+  disable_hyprland_logo = false
+  disable_splash_rendering = false
+  vfr = true
+  vrr = 0
+  mouse_move_enables_dpms = false
+  key_press_enables_dpms = false
+  always_follow_on_dnd = true
+  layers_hog_keyboard_focus = true
+  animate_manual_resizes = false
+  animate_mouse_windowdragging = false
+  disable_autoreload = false
+  enable_swallow = false
+  swallow_regex = [[Empty]]
+  swallow_exception_regex = [[Empty]]
+  focus_on_activate = false
+  no_direct_scanout = true
+  hide_cursor_on_touch = true
+  mouse_move_focuses_monitor = true
+  suppress_portal_warnings = false
+  render_ahead_of_time = false
+  render_ahead_safezone = 1
+  cursor_zoom_factor = 1.0
+  cursor_zoom_rigid = false
+  allow_session_lock_restore = false
+  render_titles_in_groupbar = true
+  groupbar_titles_font_size = 8
+  groupbar_gradients = true
+}
+
+---
+
+(config_file
+  (variable_section
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (str))
+    (section_variable (str))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (float))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (bool))))
+
+==============================
+Binds section all default
+==============================
+
+binds {
+  pass_mouse_when_bound = false
+  scroll_event_delay = 300
+  workspace_back_and_forth = false
+  allow_workspace_cycles = false
+  focus_preferred_method = 0
+}
+
+---
+
+(config_file
+  (variable_section
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (int))))
+
+==============================
+Debug section all default
+==============================
+
+debug {
+  overlay = false
+  damage_blink = false
+  disable_logs = false
+  disable_time = true
+  damage_tracking = 2
+  enable_stdout_logs = false
+  manual_crash = 0
+}
+
+---
+
+(config_file
+  (variable_section
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (bool))
+    (section_variable (int))))
+
+==============================
+Section with newlines, comments and random indentation
+==============================
+
+#########################
+### The debug Section ###
+#########################
+debug {
+
+# This is the Overlay
+  overlay = false
+
+damage_blink = false
+
+    # And we have comment here too
+                disable_logs = false
+                damage_tracking = 2
+disable_time = true
+      enable_stdout_logs = false
+manual_crash = 0
+}
+
+---
+
+(config_file
+  (comment)
+  (comment)
+  (comment)
+  (variable_section
+    (comment)
+    (section_variable (bool))
+    (section_variable (bool))
+    (comment)
+    (section_variable (bool))
+    (section_variable (int))
+    (section_variable (bool))
+    (section_variable (bool))
+    (section_variable (int))))
