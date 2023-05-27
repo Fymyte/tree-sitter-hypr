@@ -30,7 +30,7 @@ module.exports = grammar({
         )
       ),
 
-    comment: ($) => seq("#", /[^\n]*/, $._newline),
+    comment: ($) => seq("#", token.immediate(/[^\n]*/)),
 
     int: (_$) => /[+-]?\d+/,
     _immediate_int: (_$) => token.immediate(/[+-]?\d+/),

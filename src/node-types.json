@@ -5,6 +5,22 @@
     "fields": {}
   },
   {
+    "type": "bitdepth",
+    "named": true,
+    "fields": {
+      "bitdepth": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "bool",
     "named": true,
     "fields": {}
@@ -90,16 +106,6 @@
     "type": "command_env",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          }
-        ]
-      },
       "name": {
         "multiple": true,
         "required": true,
@@ -130,16 +136,6 @@
     "type": "command_envd",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          }
-        ]
-      },
       "name": {
         "multiple": true,
         "required": true,
@@ -170,16 +166,6 @@
     "type": "command_exec",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "shell_command",
-            "named": true
-          }
-        ]
-      },
       "name": {
         "multiple": false,
         "required": true,
@@ -190,22 +176,22 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "shell_command",
+          "named": true
+        }
+      ]
     }
   },
   {
     "type": "command_exec_once",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "shell_command",
-            "named": true
-          }
-        ]
-      },
       "name": {
         "multiple": false,
         "required": true,
@@ -216,22 +202,22 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "shell_command",
+          "named": true
+        }
+      ]
     }
   },
   {
     "type": "command_layerrule",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          }
-        ]
-      },
       "identifier": {
         "multiple": false,
         "required": true,
@@ -268,16 +254,6 @@
     "type": "command_monitor",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          }
-        ]
-      },
       "name": {
         "multiple": true,
         "required": true,
@@ -287,6 +263,10 @@
             "named": false
           },
           {
+            "type": "monitor_desc",
+            "named": true
+          },
+          {
             "type": "word",
             "named": true
           }
@@ -294,7 +274,7 @@
       },
       "position": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "auto",
@@ -308,7 +288,7 @@
       },
       "resolution": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "auto_resolution",
@@ -322,7 +302,7 @@
       },
       "scale": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "auto",
@@ -334,22 +314,34 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bitdepth",
+          "named": true
+        },
+        {
+          "type": "disable",
+          "named": true
+        },
+        {
+          "type": "mirror",
+          "named": true
+        },
+        {
+          "type": "transform",
+          "named": true
+        }
+      ]
     }
   },
   {
     "type": "command_source",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "str",
-            "named": true
-          }
-        ]
-      },
       "name": {
         "multiple": false,
         "required": true,
@@ -360,6 +352,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "str",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -461,7 +463,32 @@
     "fields": {}
   },
   {
+    "type": "mirror",
+    "named": true,
+    "fields": {
+      "mirror": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "monitor_desc",
+            "named": true
+          },
+          {
+            "type": "word",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "mod",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "monitor_desc",
     "named": true,
     "fields": {}
   },
@@ -1074,6 +1101,22 @@
     }
   },
   {
+    "type": "transform",
+    "named": true,
+    "fields": {
+      "transform": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "variable_reference",
     "named": true,
     "fields": {}
@@ -1308,6 +1351,10 @@
     "named": false
   },
   {
+    "type": "bitdepth",
+    "named": false
+  },
+  {
     "type": "blur",
     "named": false
   },
@@ -1400,6 +1447,10 @@
     "named": false
   },
   {
+    "type": "desc",
+    "named": false
+  },
+  {
     "type": "device",
     "named": false
   },
@@ -1418,6 +1469,10 @@
   {
     "type": "dim_strength",
     "named": false
+  },
+  {
+    "type": "disable",
+    "named": true
   },
   {
     "type": "disable_autoreload",
@@ -1621,6 +1676,10 @@
   },
   {
     "type": "middle_button_emulation",
+    "named": false
+  },
+  {
+    "type": "mirror",
     "named": false
   },
   {

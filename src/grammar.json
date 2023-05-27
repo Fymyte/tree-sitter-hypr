@@ -29,12 +29,11 @@
           "value": "#"
         },
         {
-          "type": "PATTERN",
-          "value": "[^\\n]*"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_newline"
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "PATTERN",
+            "value": "[^\\n]*"
+          }
         }
       ]
     },
@@ -5097,35 +5096,44 @@
       ]
     },
     "command": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "command_exec"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "command_exec"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "command_exec_once"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "command_source"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "command_layerrule"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "command_env"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "command_envd"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "command_monitor"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
-          "name": "command_exec_once"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "command_source"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "command_layerrule"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "command_env"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "command_envd"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "command_monitor"
+          "name": "_newline"
         }
       ]
     },
@@ -5149,17 +5157,8 @@
           "value": "="
         },
         {
-          "type": "FIELD",
-          "name": "arguments",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "shell_command"
-              }
-            ]
-          }
+          "type": "SYMBOL",
+          "name": "shell_command"
         }
       ]
     },
@@ -5179,17 +5178,8 @@
           "value": "="
         },
         {
-          "type": "FIELD",
-          "name": "arguments",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "shell_command"
-              }
-            ]
-          }
+          "type": "SYMBOL",
+          "name": "shell_command"
         }
       ]
     },
@@ -5209,17 +5199,8 @@
           "value": "="
         },
         {
-          "type": "FIELD",
-          "name": "arguments",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "str"
-              }
-            ]
-          }
+          "type": "SYMBOL",
+          "name": "str"
         }
       ]
     },
@@ -5304,33 +5285,29 @@
           "value": "="
         },
         {
-          "type": "FIELD",
-          "name": "arguments",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "rule",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "layer_rule"
-                }
-              },
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "FIELD",
-                "name": "identifier",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "layer_identifier"
-                }
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "rule",
+              "content": {
+                "type": "SYMBOL",
+                "name": "layer_rule"
               }
-            ]
-          }
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "FIELD",
+              "name": "identifier",
+              "content": {
+                "type": "SYMBOL",
+                "name": "layer_identifier"
+              }
+            }
+          ]
         }
       ]
     },
@@ -5350,33 +5327,29 @@
           "value": "="
         },
         {
-          "type": "FIELD",
-          "name": "arguments",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "name",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "word"
-                }
-              },
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "FIELD",
-                "name": "value",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "str"
-                }
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "name",
+              "content": {
+                "type": "SYMBOL",
+                "name": "word"
               }
-            ]
-          }
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "FIELD",
+              "name": "value",
+              "content": {
+                "type": "SYMBOL",
+                "name": "str"
+              }
+            }
+          ]
         }
       ]
     },
@@ -5396,33 +5369,69 @@
           "value": "="
         },
         {
-          "type": "FIELD",
-          "name": "arguments",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "name",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "word"
-                }
-              },
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "FIELD",
-                "name": "value",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "str"
-                }
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "name",
+              "content": {
+                "type": "SYMBOL",
+                "name": "word"
               }
-            ]
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "FIELD",
+              "name": "value",
+              "content": {
+                "type": "SYMBOL",
+                "name": "str"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "monitor_desc": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "desc"
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": ":"
           }
+        },
+        {
+          "type": "FIELD",
+          "name": "description",
+          "content": {
+            "type": "IMMEDIATE_TOKEN",
+            "content": {
+              "type": "PATTERN",
+              "value": "[^,]+"
+            }
+          }
+        }
+      ]
+    },
+    "_monitor_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "word"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "monitor_desc"
         }
       ]
     },
@@ -5533,6 +5542,212 @@
         }
       ]
     },
+    "_monitor_disable": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_monitor_name"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "disable"
+        }
+      ]
+    },
+    "mirror": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "mirror"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "FIELD",
+          "name": "mirror",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_monitor_name"
+          }
+        }
+      ]
+    },
+    "bitdepth": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "bitdepth"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "FIELD",
+          "name": "bitdepth",
+          "content": {
+            "type": "SYMBOL",
+            "name": "int"
+          }
+        }
+      ]
+    },
+    "transform": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "transform"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "FIELD",
+          "name": "transform",
+          "content": {
+            "type": "SYMBOL",
+            "name": "int"
+          }
+        }
+      ]
+    },
+    "_monitor_config_optional": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "mirror"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "bitdepth"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "transform"
+            }
+          ]
+        }
+      ]
+    },
+    "_monitor_config": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "name",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_monitor_name"
+                  }
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "FIELD",
+              "name": "resolution",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "resolution"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "auto_resolution"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "FIELD",
+              "name": "position",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "position"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "auto"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "FIELD",
+              "name": "scale",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "float"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "auto"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_monitor_config_optional"
+          }
+        }
+      ]
+    },
     "command_monitor": {
       "type": "SEQ",
       "members": [
@@ -5549,92 +5764,17 @@
           "value": "="
         },
         {
-          "type": "FIELD",
-          "name": "arguments",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "FIELD",
-                    "name": "name",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "word"
-                    }
-                  },
-                  {
-                    "type": "BLANK"
-                  }
-                ]
-              },
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "FIELD",
-                "name": "resolution",
-                "content": {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "resolution"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "auto_resolution"
-                    }
-                  ]
-                }
-              },
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "FIELD",
-                "name": "position",
-                "content": {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "position"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "auto"
-                    }
-                  ]
-                }
-              },
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "FIELD",
-                "name": "scale",
-                "content": {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "float"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "auto"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_monitor_disable"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_monitor_config"
+            }
+          ]
         }
       ]
     },
@@ -5655,6 +5795,10 @@
     "auto": {
       "type": "STRING",
       "value": "auto"
+    },
+    "disable": {
+      "type": "STRING",
+      "value": "disable"
     }
   },
   "extras": [

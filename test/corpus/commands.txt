@@ -19,13 +19,13 @@ exec = echo the command only starts after ### this is an hypr comment
   (command
     (command_exec_once (shell_command)))
   (command
-    (command_exec (shell_command)))
-  (comment)
+    (command_exec (shell_command))
+    (comment))
   (command
     (command_exec (shell_command)))
   (command
-    (command_exec (shell_command)))
-  (comment))
+    (command_exec (shell_command))
+    (comment)))
 
 ========================================
 Command source
@@ -114,6 +114,13 @@ monitor = ,highres, auto, auto
 monitor = ,highrr, auto, auto
 monitor = DP-1, 1920x1080, 0x0, 1.
 monitor = DP-1, 1920x1080@144, 0x0, 1.
+monitor=desc:SDC 0x4154,preferred,auto,1.5
+monitor=name,disable
+monitor=DP-3,1920x1080@60,0x0,1,mirror,DP-2
+monitor=,preferred,auto,1,mirror,DP-1
+monitor=eDP-1,2880x1800@90,0x0,1,bitdepth,10
+monitor=eDP-1,2880x1800@90,0x0,1,transform,1
+monitor=eDP-1,2880x1800@90,0x0,1,transform,1,mirror,DP-2,bitdepth,10
 
 ---
 
@@ -156,4 +163,56 @@ monitor = DP-1, 1920x1080@144, 0x0, 1.
       name: (word)
       resolution: (resolution width: (int) (by) height: (int) (at) refresh_rate: (int))
       position: (position x_offset: (int) (by) y_offset: (int))
-      scale: (float))))
+      scale: (float)))
+  (command
+    (command_monitor
+      name: (monitor_desc)
+      resolution: (auto_resolution)
+      position: (auto)
+      scale: (float)))
+  (command
+    (command_monitor
+      name: (word)
+      (disable)))
+  (command
+   (command_monitor
+    name: (word)
+    resolution: (resolution width: (int) (by) height: (int) (at) refresh_rate: (int))
+    position: (position x_offset: (int) (by) y_offset: (int))
+    scale: (float)
+    (mirror
+     mirror: (word))))
+  (command
+    (command_monitor
+      resolution: (auto_resolution)
+      position: (auto)
+      scale: (float)
+      (mirror mirror: (word))))
+  (command
+    (command_monitor
+      name: (word)
+      resolution: (resolution width: (int) (by) height: (int) (at) refresh_rate: (int))
+      position: (position x_offset: (int) (by) y_offset: (int))
+      scale: (float)
+      (bitdepth
+        bitdepth: (int))))
+  (command
+    (command_monitor
+      name: (word)
+      resolution: (resolution width: (int) (by) height: (int) (at) refresh_rate: (int))
+      position: (position x_offset: (int) (by) y_offset: (int))
+      scale: (float)
+      (transform
+        transform: (int))))
+  (command
+    (command_monitor
+      name: (word)
+      resolution: (resolution width: (int) (by) height: (int) (at) refresh_rate: (int))
+      position: (position x_offset: (int) (by) y_offset: (int))
+      scale: (float)
+      (transform
+        transform: (int))
+      (mirror
+        mirror: (word))
+      (bitdepth
+        bitdepth: (int)))))
