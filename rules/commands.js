@@ -4,7 +4,9 @@ module.exports = {
       $.command_exec,
       $.command_exec_once,
       $.command_source,
-      $.command_layerrule
+      $.command_layerrule,
+      $.command_env,
+      $.command_envd,
     ),
 
   shell_command: (_$) => /(?:[^#\n]*(?:##)?)+/,
@@ -26,10 +28,15 @@ module.exports = {
     choice($.layer_address, alias($.word, $.layer_namespace)),
   command_layerrule: ($) =>
     command("layerrule", arglist($.layer_rule, $.layer_identifier)),
+
+  command_env: ($) =>
+    command("env", arglist(alias($.word, $.env_var_name), $.str)),
+  command_envd: ($) =>
+    command("envd", arglist(alias($.word, $.env_var_name), $.str)),
 };
 
 function command(name, next) {
-  return seq(field("name", name), "=", field("arguments", next));
+  return seq(field("name", name), "=", field("argument", next));
 }
 
 function arglist(...args) {

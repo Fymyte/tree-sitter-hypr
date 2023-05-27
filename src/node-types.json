@@ -51,6 +51,14 @@
       "required": true,
       "types": [
         {
+          "type": "command_env",
+          "named": true
+        },
+        {
+          "type": "command_envd",
+          "named": true
+        },
+        {
           "type": "command_exec",
           "named": true
         },
@@ -70,10 +78,78 @@
     }
   },
   {
+    "type": "command_env",
+    "named": true,
+    "fields": {
+      "argument": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "env_var_name",
+            "named": true
+          },
+          {
+            "type": "str",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "env",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "command_envd",
+    "named": true,
+    "fields": {
+      "argument": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "env_var_name",
+            "named": true
+          },
+          {
+            "type": "str",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "envd",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "command_exec",
     "named": true,
     "fields": {
-      "arguments": {
+      "argument": {
         "multiple": true,
         "required": true,
         "types": [
@@ -99,7 +175,7 @@
     "type": "command_exec_once",
     "named": true,
     "fields": {
-      "arguments": {
+      "argument": {
         "multiple": true,
         "required": true,
         "types": [
@@ -125,7 +201,7 @@
     "type": "command_layerrule",
     "named": true,
     "fields": {
-      "arguments": {
+      "argument": {
         "multiple": true,
         "required": true,
         "types": [
@@ -159,7 +235,7 @@
     "type": "command_source",
     "named": true,
     "fields": {
-      "arguments": {
+      "argument": {
         "multiple": false,
         "required": true,
         "types": [
@@ -230,6 +306,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "env_var_name",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "gradient",
@@ -1187,6 +1268,14 @@
   },
   {
     "type": "enabled",
+    "named": false
+  },
+  {
+    "type": "env",
+    "named": false
+  },
+  {
+    "type": "envd",
     "named": false
   },
   {

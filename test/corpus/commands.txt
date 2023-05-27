@@ -76,3 +76,27 @@ layerrule = unset, address:0x55e5ad6a0fd0
     (command_layerrule
       (layer_rule)
       (layer_identifier (layer_address)))))
+
+========================================
+Command env
+========================================
+
+env = QT_QPA_PLATFORM,wayland
+env = XCURSOR_SIZE,24
+envd = XCURSOR_SIZE,24
+
+---
+
+(config_file
+  (command
+    (command_env
+      (env_var_name)
+      (str)))
+  (command
+    (command_env
+      (env_var_name)
+      (str)))
+  (command
+    (command_envd
+      (env_var_name)
+      (str))))

@@ -5096,6 +5096,14 @@
         {
           "type": "SYMBOL",
           "name": "command_layerrule"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "command_env"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "command_envd"
         }
       ]
     },
@@ -5120,7 +5128,7 @@
         },
         {
           "type": "FIELD",
-          "name": "arguments",
+          "name": "argument",
           "content": {
             "type": "SEQ",
             "members": [
@@ -5154,7 +5162,7 @@
         },
         {
           "type": "FIELD",
-          "name": "arguments",
+          "name": "argument",
           "content": {
             "type": "SEQ",
             "members": [
@@ -5188,7 +5196,7 @@
         },
         {
           "type": "FIELD",
-          "name": "arguments",
+          "name": "argument",
           "content": {
             "type": "SYMBOL",
             "name": "str"
@@ -5278,7 +5286,7 @@
         },
         {
           "type": "FIELD",
-          "name": "arguments",
+          "name": "argument",
           "content": {
             "type": "SEQ",
             "members": [
@@ -5293,6 +5301,92 @@
               {
                 "type": "SYMBOL",
                 "name": "layer_identifier"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "command_env": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "STRING",
+            "value": "env"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "FIELD",
+          "name": "argument",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "word"
+                },
+                "named": true,
+                "value": "env_var_name"
+              },
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "str"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "command_envd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "STRING",
+            "value": "envd"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "FIELD",
+          "name": "argument",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "word"
+                },
+                "named": true,
+                "value": "env_var_name"
+              },
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "str"
               }
             ]
           }
