@@ -19,11 +19,13 @@ exec = echo the command only starts after ### this is an hypr comment
   (command
     (command_exec_once (shell_command)))
   (command
-    (command_exec (shell_command) (comment)))
+    (command_exec (shell_command)))
+  (comment)
   (command
     (command_exec (shell_command)))
   (command
-    (command_exec (shell_command) (comment))))
+    (command_exec (shell_command)))
+  (comment))
 
 ========================================
 Command source
@@ -62,20 +64,20 @@ layerrule = unset, address:0x55e5ad6a0fd0
 (config_file
   (command
     (command_layerrule
-      (layer_rule)
-      (layer_identifier (layer_namespace))))
+      rule: (layer_rule)
+      identifier: (layer_identifier (layer_namespace))))
   (command
     (command_layerrule
-      (layer_rule)
-      (layer_identifier (layer_namespace))))
+      rule: (layer_rule)
+      identifier: (layer_identifier (layer_namespace))))
   (command
     (command_layerrule
-      (layer_rule)
-      (layer_identifier (layer_address))))
+      rule: (layer_rule)
+      identifier: (layer_identifier (layer_address))))
   (command
     (command_layerrule
-      (layer_rule)
-      (layer_identifier (layer_address)))))
+      rule: (layer_rule)
+      identifier: (layer_identifier (layer_address)))))
 
 ========================================
 Command env
@@ -90,13 +92,68 @@ envd = XCURSOR_SIZE,24
 (config_file
   (command
     (command_env
-      (env_var_name)
-      (str)))
+      name: (word)
+      value: (str)))
   (command
     (command_env
-      (env_var_name)
-      (str)))
+      name: (word)
+      value: (str)))
   (command
     (command_envd
-      (env_var_name)
-      (str))))
+      name: (word)
+      value: (str))))
+
+========================================
+Command monitor
+========================================
+
+monitor= DP-1, preferred, auto, auto
+monitor= HDMI-2, preferred, auto, auto
+monitor = ,preferred, auto, auto
+monitor = ,highres, auto, auto
+monitor = ,highrr, auto, auto
+monitor = DP-1, 1920x1080, 0x0, 1.
+monitor = DP-1, 1920x1080@144, 0x0, 1.
+
+---
+
+(config_file
+  (command
+    (command_monitor
+      name: (word)
+      resolution: (auto_resolution)
+      position: (auto)
+      scale: (auto)))
+  (command
+    (command_monitor
+      name: (word)
+      resolution: (auto_resolution)
+      position: (auto)
+      scale: (auto)))
+  (command
+    (command_monitor
+      resolution: (auto_resolution)
+      position: (auto)
+      scale: (auto)))
+  (command
+    (command_monitor
+      resolution: (auto_resolution)
+      position: (auto)
+      scale: (auto)))
+  (command
+    (command_monitor
+      resolution: (auto_resolution)
+      position: (auto)
+      scale: (auto)))
+  (command
+    (command_monitor
+      name: (word)
+      resolution: (resolution width: (int) (by) height: (int))
+      position: (position x_offset: (int) (by) y_offset: (int))
+      scale: (float)))
+  (command
+    (command_monitor
+      name: (word)
+      resolution: (resolution width: (int) (by) height: (int) (at) refresh_rate: (int))
+      position: (position x_offset: (int) (by) y_offset: (int))
+      scale: (float))))

@@ -7,12 +7,12 @@ module.exports = {
       $.command_layerrule,
       $.command_env,
       $.command_envd,
+      $.command_monitor
     ),
 
   shell_command: (_$) => /(?:[^#\n]*(?:##)?)+/,
-  command_exec: ($) => command("exec", seq($.shell_command, $._newline)),
-  command_exec_once: ($) =>
-    command("exec-once", seq($.shell_command, $._newline)),
+  command_exec: ($) => command("exec", $.shell_command),
+  command_exec_once: ($) => command("exec-once", $.shell_command),
 
   command_source: ($) => command("source", $.str),
 
@@ -27,16 +27,47 @@ module.exports = {
   layer_identifier: ($) =>
     choice($.layer_address, alias($.word, $.layer_namespace)),
   command_layerrule: ($) =>
-    command("layerrule", arglist($.layer_rule, $.layer_identifier)),
+    command(
+      "layerrule",
+      field("rule", $.layer_rule),
+      field("identifier", $.layer_identifier)
+    ),
 
   command_env: ($) =>
-    command("env", arglist(alias($.word, $.env_var_name), $.str)),
+    command("env", field("name", $.word), field("value", $.str)),
   command_envd: ($) =>
-    command("envd", arglist(alias($.word, $.env_var_name), $.str)),
+    command("envd", field("name", $.word), field("value", $.str)),
+
+  resolution: ($) =>
+    seq(
+      field("width", $.int),
+      $.by,
+      field("height", alias($._immediate_int, $.int)),
+      optional(seq($.at, field("refresh_rate", alias($._immediate_int, $.int))))
+    ),
+  position: ($) =>
+    seq(
+      field("x_offset", $.int),
+      $.by,
+      field("y_offset", alias($._immediate_int, $.int))
+    ),
+  auto_resolution: (_$) => choice("preferred", "highres", "highrr"),
+  command_monitor: ($) =>
+    command(
+      "monitor",
+      optional(field("name", $.word)),
+      field("resolution", choice($.resolution, $.auto_resolution)),
+      field("position", choice($.position, $.auto)),
+      field("scale", choice($.float, $.auto))
+    ),
+
+  by: (_$) => token.immediate("x"),
+  at: (_$) => token.immediate("@"),
+  auto: (_$) => "auto",
 };
 
-function command(name, next) {
-  return seq(field("name", name), "=", field("argument", next));
+function command(name, ...next) {
+  return seq(field("name", name), "=", field("arguments", arglist(...next)));
 }
 
 function arglist(...args) {

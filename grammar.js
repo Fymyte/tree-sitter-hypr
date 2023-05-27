@@ -26,15 +26,16 @@ module.exports = grammar({
         choice(
           $._newline,
           $.variable_section,
-          $.command,
-          // $.config_line,
+          $.command
         )
       ),
 
-    comment: ($) => seq("#", /[^\n]*/),
+    comment: ($) => seq("#", /[^\n]*/, $._newline),
 
     int: (_$) => /[+-]?\d+/,
+    _immediate_int: (_$) => token.immediate(/[+-]?\d+/),
     float: (_$) => /[+-]?\d+(?:\.\d*)?|[+-]?\.\d+/,
+    _immediate_float: (_$) => token.immediate(/[+-]?\d+(?:\.\d*)?|[+-]?\.\d+/),
     vec2: ($) => seq($.float, $.float),
     mod: (_$) => choice(...MODS_LIST),
     mods: ($) => sep1($.mod, /[^,]*/),
@@ -64,7 +65,7 @@ module.exports = grammar({
     degree: ($) => seq($.int, field("unit", token.immediate("deg"))),
 
     str: (_$) => /\S+/,
-    word: (_$) => /\w+/,
+    word: (_$) => /[a-zA-Z0-9-_]+/,
 
     variable_reference: (_$) => seq("$", /\w+/),
 
@@ -72,7 +73,6 @@ module.exports = grammar({
 
     ...require("./rules/variables"),
     ...require("./rules/commands"),
-
   },
 });
 

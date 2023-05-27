@@ -1,5 +1,10 @@
 [
   {
+    "type": "auto_resolution",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "bool",
     "named": true,
     "fields": {}
@@ -71,6 +76,10 @@
           "named": true
         },
         {
+          "type": "command_monitor",
+          "named": true
+        },
+        {
           "type": "command_source",
           "named": true
         }
@@ -81,31 +90,37 @@
     "type": "command_env",
     "named": true,
     "fields": {
-      "argument": {
-        "multiple": true,
+      "arguments": {
+        "multiple": false,
         "required": true,
         "types": [
           {
             "type": ",",
             "named": false
-          },
-          {
-            "type": "env_var_name",
-            "named": true
-          },
-          {
-            "type": "str",
-            "named": true
           }
         ]
       },
       "name": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
             "type": "env",
             "named": false
+          },
+          {
+            "type": "word",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "str",
+            "named": true
           }
         ]
       }
@@ -115,31 +130,37 @@
     "type": "command_envd",
     "named": true,
     "fields": {
-      "argument": {
-        "multiple": true,
+      "arguments": {
+        "multiple": false,
         "required": true,
         "types": [
           {
             "type": ",",
             "named": false
-          },
-          {
-            "type": "env_var_name",
-            "named": true
-          },
-          {
-            "type": "str",
-            "named": true
           }
         ]
       },
       "name": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
             "type": "envd",
             "named": false
+          },
+          {
+            "type": "word",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "str",
+            "named": true
           }
         ]
       }
@@ -149,8 +170,8 @@
     "type": "command_exec",
     "named": true,
     "fields": {
-      "argument": {
-        "multiple": true,
+      "arguments": {
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -175,8 +196,8 @@
     "type": "command_exec_once",
     "named": true,
     "fields": {
-      "argument": {
-        "multiple": true,
+      "arguments": {
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -201,20 +222,22 @@
     "type": "command_layerrule",
     "named": true,
     "fields": {
-      "argument": {
-        "multiple": true,
+      "arguments": {
+        "multiple": false,
         "required": true,
         "types": [
           {
             "type": ",",
             "named": false
-          },
+          }
+        ]
+      },
+      "identifier": {
+        "multiple": false,
+        "required": true,
+        "types": [
           {
             "type": "layer_identifier",
-            "named": true
-          },
-          {
-            "type": "layer_rule",
             "named": true
           }
         ]
@@ -228,6 +251,88 @@
             "named": false
           }
         ]
+      },
+      "rule": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "layer_rule",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "command_monitor",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          }
+        ]
+      },
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "monitor",
+            "named": false
+          },
+          {
+            "type": "word",
+            "named": true
+          }
+        ]
+      },
+      "position": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "auto",
+            "named": true
+          },
+          {
+            "type": "position",
+            "named": true
+          }
+        ]
+      },
+      "resolution": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "auto_resolution",
+            "named": true
+          },
+          {
+            "type": "resolution",
+            "named": true
+          }
+        ]
+      },
+      "scale": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "auto",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          }
+        ]
       }
     }
   },
@@ -235,7 +340,7 @@
     "type": "command_source",
     "named": true,
     "fields": {
-      "argument": {
+      "arguments": {
         "multiple": false,
         "required": true,
         "types": [
@@ -308,11 +413,6 @@
     }
   },
   {
-    "type": "env_var_name",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "gradient",
     "named": true,
     "fields": {},
@@ -356,11 +456,6 @@
     }
   },
   {
-    "type": "layer_namespace",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "layer_rule",
     "named": true,
     "fields": {}
@@ -369,6 +464,92 @@
     "type": "mod",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "position",
+    "named": true,
+    "fields": {
+      "x_offset": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      },
+      "y_offset": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "by",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "resolution",
+    "named": true,
+    "fields": {
+      "height": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      },
+      "refresh_rate": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      },
+      "width": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "at",
+          "named": true
+        },
+        {
+          "type": "by",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "section_variable",
@@ -1115,6 +1296,14 @@
     "named": false
   },
   {
+    "type": "at",
+    "named": true
+  },
+  {
+    "type": "auto",
+    "named": true
+  },
+  {
     "type": "binds",
     "named": false
   },
@@ -1145,6 +1334,10 @@
   {
     "type": "border_size",
     "named": false
+  },
+  {
+    "type": "by",
+    "named": true
   },
   {
     "type": "clickfinger_behavior",
@@ -1351,6 +1544,14 @@
     "named": false
   },
   {
+    "type": "highres",
+    "named": false
+  },
+  {
+    "type": "highrr",
+    "named": false
+  },
+  {
     "type": "hover_icon_on_border",
     "named": false
   },
@@ -1395,6 +1596,10 @@
     "named": false
   },
   {
+    "type": "layer_namespace",
+    "named": true
+  },
+  {
     "type": "layerrule",
     "named": false
   },
@@ -1420,6 +1625,10 @@
   },
   {
     "type": "misc",
+    "named": false
+  },
+  {
+    "type": "monitor",
     "named": false
   },
   {
@@ -1484,6 +1693,10 @@
   },
   {
     "type": "pass_mouse_when_bound",
+    "named": false
+  },
+  {
+    "type": "preferred",
     "named": false
   },
   {
@@ -1629,6 +1842,10 @@
   {
     "type": "vrr",
     "named": false
+  },
+  {
+    "type": "word",
+    "named": true
   },
   {
     "type": "workspace_back_and_forth",
