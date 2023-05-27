@@ -644,9 +644,13 @@
     "named": true,
     "fields": {
       "name": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": ":",
+            "named": false
+          },
           {
             "type": "animation",
             "named": false
@@ -661,6 +665,10 @@
           },
           {
             "type": "decoration",
+            "named": false
+          },
+          {
+            "type": "device",
             "named": false
           },
           {
@@ -746,6 +754,10 @@
   },
   {
     "type": "1",
+    "named": false
+  },
+  {
+    "type": ":",
     "named": false
   },
   {
@@ -926,6 +938,10 @@
   },
   {
     "type": "deg",
+    "named": false
+  },
+  {
+    "type": "device",
     "named": false
   },
   {

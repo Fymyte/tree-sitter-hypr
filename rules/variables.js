@@ -151,18 +151,25 @@ const DEBUG_SECTION_VARIABLES = {
 module.exports = {
   variable_section: ($) =>
     choice(
-      make_section($, "general"),
-      make_section($, "decoration"),
-      make_section($, "animation"),
+      make_section($, "general", $._general_section_var),
+      make_section($, "decoration", $._decoration_section_var),
+      make_section($, "animation", $._animation_section_var),
       make_section(
         $,
         "input",
+        $._input_section_var,
         alias($._input_variable_section, $.variable_section)
       ),
-      make_section($, "gestures"),
-      make_section($, "misc"),
-      make_section($, "binds"),
-      make_section($, "debug")
+      make_section($, "gestures", $._gestures_section_var),
+      make_section($, "misc", $._misc_section_var),
+      make_section($, "binds", $._binds_section_var),
+      make_section($, "debug", $._debug_section_var),
+      make_section(
+        $,
+        seq("device", token.immediate(":"), token.immediate(/[a-zA-Z0-9-_]+/)),
+        $._input_section_var,
+        alias($._input_variable_section, $.variable_section)
+      )
     ),
 
   _general_section_var: ($) => dict_to_section($, GENERAL_SECTION_VARIABLES),
@@ -178,7 +185,10 @@ module.exports = {
   _touchdevice_section_var: ($) =>
     dict_to_section($, INPUT_TOUCHDEVICE_SECTION_VARIABLES),
   _input_variable_section: ($) =>
-    choice(make_section($, "touchpad"), make_section($, "touchdevice")),
+    choice(
+      make_section($, "touchpad", $._touchpad_section_var),
+      make_section($, "touchdevice", $._touchdevice_section_var)
+    ),
   _input_section_var: ($) => dict_to_section($, INPUT_SECTION_VARIABLES),
 
   _gestures_section_var: ($) => dict_to_section($, GESTURES_SECTION_VARIABLES),
@@ -190,8 +200,8 @@ module.exports = {
   _debug_section_var: ($) => dict_to_section($, DEBUG_SECTION_VARIABLES),
 };
 
-function make_section($, name, ...additional_choices) {
-  variables = "_" + name + "_section_var";
+function make_section($, name, variables, ...additional_choices) {
+  // variables = "_" + name + "_section_var";
   return seq(
     field("name", name),
     "{",
@@ -199,12 +209,16 @@ function make_section($, name, ...additional_choices) {
     repeat(
       choice(
         $._newline,
-        alias($[variables], $.section_variable),
+        alias(variables, $.section_variable),
         ...additional_choices
       )
     ),
     "}"
   );
+}
+
+function make_device_section($) {
+  variables = "_";
 }
 
 function dict_to_section($, dict) {
