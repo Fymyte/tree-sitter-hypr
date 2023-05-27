@@ -43,6 +43,145 @@
     "fields": {}
   },
   {
+    "type": "command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "command_exec",
+          "named": true
+        },
+        {
+          "type": "command_exec_once",
+          "named": true
+        },
+        {
+          "type": "command_layerrule",
+          "named": true
+        },
+        {
+          "type": "command_source",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "command_exec",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "shell_command",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "exec",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "command_exec_once",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "shell_command",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "exec-once",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "command_layerrule",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "layer_identifier",
+            "named": true
+          },
+          {
+            "type": "layer_rule",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "layerrule",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "command_source",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "str",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "source",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "comment",
     "named": true,
     "fields": {}
@@ -55,6 +194,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "command",
+          "named": true
+        },
         {
           "type": "variable_section",
           "named": true
@@ -106,6 +249,40 @@
         }
       ]
     }
+  },
+  {
+    "type": "layer_address",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "layer_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "layer_address",
+          "named": true
+        },
+        {
+          "type": "layer_namespace",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "layer_namespace",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "layer_rule",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "mod",
@@ -745,6 +922,10 @@
     "named": false
   },
   {
+    "type": ",",
+    "named": false
+  },
+  {
     "type": "0",
     "named": false
   },
@@ -818,6 +999,10 @@
   },
   {
     "type": "active_opacity",
+    "named": false
+  },
+  {
+    "type": "address",
     "named": false
   },
   {
@@ -1005,6 +1190,14 @@
     "named": false
   },
   {
+    "type": "exec",
+    "named": false
+  },
+  {
+    "type": "exec-once",
+    "named": false
+  },
+  {
     "type": "extend_border_grab_area",
     "named": false
   },
@@ -1110,6 +1303,10 @@
   },
   {
     "type": "key_press_enables_dpms",
+    "named": false
+  },
+  {
+    "type": "layerrule",
     "named": false
   },
   {
@@ -1281,6 +1478,14 @@
     "named": false
   },
   {
+    "type": "shell_command",
+    "named": true
+  },
+  {
+    "type": "source",
+    "named": false
+  },
+  {
     "type": "str",
     "named": true
   },
@@ -1322,6 +1527,10 @@
   },
   {
     "type": "true",
+    "named": false
+  },
+  {
+    "type": "unset",
     "named": false
   },
   {

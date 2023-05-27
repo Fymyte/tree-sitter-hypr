@@ -25,12 +25,13 @@ module.exports = grammar({
       repeat(
         choice(
           $._newline,
-          $.variable_section
+          $.variable_section,
+          $.command,
           // $.config_line,
         )
       ),
 
-    comment: ($) => seq("#", /[^\n]*/, $._newline),
+    comment: ($) => seq("#", /[^\n]*/),
 
     int: (_$) => /[+-]?\d+/,
     float: (_$) => /[+-]?\d+(?:\.\d*)?|[+-]?\.\d+/,
@@ -63,16 +64,15 @@ module.exports = grammar({
     degree: ($) => seq($.int, field("unit", token.immediate("deg"))),
 
     str: (_$) => /\S+/,
+    word: (_$) => /\w+/,
 
-    variable_reference: $ => seq('$', /\w+/),
+    variable_reference: (_$) => seq("$", /\w+/),
 
     _newline: (_$) => "\n",
 
     ...require("./rules/variables"),
+    ...require("./rules/commands"),
 
-    // config_line: $ => seq(
-
-    // )
   },
 });
 

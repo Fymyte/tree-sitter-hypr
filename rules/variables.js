@@ -217,10 +217,6 @@ function make_section($, name, variables, ...additional_choices) {
   );
 }
 
-function make_device_section($) {
-  variables = "_";
-}
-
 function dict_to_section($, dict) {
   return choice(
     ...Object.entries(dict).map(([name, type]) =>

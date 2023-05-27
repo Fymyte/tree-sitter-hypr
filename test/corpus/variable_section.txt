@@ -651,9 +651,9 @@ device:logitech-g502-1 {
      (section_variable (int))
      (section_variable (str)))))
 
-==============================
+======================================================
 Section with newlines, comments and random indentation
-==============================
+======================================================
 
 #########################
 ### The debug Section ###
