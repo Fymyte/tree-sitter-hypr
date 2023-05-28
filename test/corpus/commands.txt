@@ -73,11 +73,11 @@ layerrule = unset, address:0x55e5ad6a0fd0
   (command
     (command_layerrule
       rule: (layer_rule)
-      identifier: (layer_identifier (layer_address))))
+      identifier: (layer_identifier (address_specifier address: (hex)))))
   (command
     (command_layerrule
       rule: (layer_rule)
-      identifier: (layer_identifier (layer_address)))))
+      identifier: (layer_identifier (address_specifier address: (hex))))))
 
 ========================================
 Command env
@@ -199,13 +199,13 @@ monitor=eDP-1,2880x1800@90,0x0,1,transform,1,mirror,DP-2,bitdepth,10
       position: (position x_offset: (int) (by) y_offset: (int))
       scale: (float)
       (mirror
-        mirror: (word))))
+        monitor: (word))))
   (command
     (command_monitor
       resolution: (auto_resolution)
       position: (auto)
       scale: (float)
-      (mirror mirror: (word))))
+      (mirror monitor: (word))))
   (command
     (command_monitor
       name: (word)
@@ -231,6 +231,7 @@ monitor=eDP-1,2880x1800@90,0x0,1,transform,1,mirror,DP-2,bitdepth,10
       (transform
         transform: (int))
       (mirror
-        mirror: (word))
+        monitor: (word))
       (bitdepth
         bitdepth: (int)))))
+

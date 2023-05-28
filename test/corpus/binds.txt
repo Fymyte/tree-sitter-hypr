@@ -1,0 +1,326 @@
+===============
+Bind no MOD
+===============
+
+bind = , A, killactive
+
+---
+
+(config_file
+  (command
+    (command_bind
+      (key
+        (symbol))
+      (dispatcher))))
+
+===============
+Bind flags
+===============
+
+bindlre = , A, killactive
+
+---
+
+(config_file
+  (command
+    (command_bind
+      (bind_flag)
+      (bind_flag)
+      (bind_flag)
+      (key
+        (symbol))
+      (dispatcher))))
+
+===============
+Bind Single MOD
+===============
+
+bind = SUPER, A, killactive
+
+---
+
+(config_file
+  (command
+    (command_bind
+      (mods
+        (mod))
+      (key
+        (symbol))
+      (dispatcher))))
+
+===============
+Bind Multi MOD
+===============
+
+bind = SUPER SHIFT, A, killactive
+bind = CAPS CTRL CONTROL, A, killactive
+bind = CAPS CTRL CONTROL, A, killactive
+bind = SHIFT CAPS CTRL CONTROL ALT MOD2 MOD3 SUPER WIN LOGO MOD4 MOD5, A, killactive
+
+---
+
+(config_file
+  (command
+    (command_bind
+      (mods
+        (mod)
+        (mod))
+      (key
+        (symbol))
+      (dispatcher)))
+  (command
+    (command_bind
+      (mods
+        (mod)
+        (mod)
+        (mod))
+      (key
+        (symbol))
+      (dispatcher)))
+  (command
+    (command_bind
+      (mods
+        (mod)
+        (mod)
+        (mod))
+      (key
+        (symbol))
+      (dispatcher)))
+  (command
+    (command_bind
+      (mods
+        (mod) (mod) (mod) (mod) (mod) (mod)
+        (mod) (mod) (mod) (mod) (mod) (mod))
+      (key
+        (symbol))
+      (dispatcher))))
+
+=================
+Bind any mod sep
+=================
+
+bind = SUPERSHIFT;CAPSfdsklALT-WIN_CTRL + CAPS, A, killactive
+
+---
+
+(config_file
+  (command
+    (command_bind
+      (mods
+        (mod)
+        (mod)
+        (mod)
+        (mod)
+        (mod)
+        (mod)
+        (mod))
+      (key
+        (symbol))
+      (dispatcher))))
+
+===========================
+Bind exec dispatcher
+===========================
+
+bind=,A,exec, echo toto
+bind=,A,execr, echo toto
+
+---
+
+(config_file
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (shell_command))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (shell_command)))))
+
+===========================
+Bind pass dispatcher
+===========================
+
+bind=,A,pass, ^(kitty)$
+bind=,A,pass, title:^(kitty)$
+bind=,A,pass, pid:10
+bind=,A,pass, address:0x10
+
+---
+
+(config_file
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher
+        (window_identifier (regex)))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher
+        (window_identifier (title_specifier (regex))))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher
+        (window_identifier (pid_specifier (int))))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher
+        (window_identifier (address_specifier (hex)))))))
+
+===========================
+Bind killactive dispatcher
+===========================
+
+bind=,A,killactive
+
+---
+
+(config_file
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher))))
+
+===========================
+Bind closewindow dispatcher
+===========================
+
+bind=,A,closewindow, window class with spaces
+bind=,A,closewindow, title:title with spaces
+bind=,A,closewindow, pid:256
+bind=,A,closewindow, address:0xAAA
+
+---
+
+(config_file
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher
+        (window_identifier (regex)))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher
+        (window_identifier (title_specifier (regex))))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher
+        (window_identifier (pid_specifier (int))))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher
+        (window_identifier (address_specifier (hex)))))))
+
+
+===========================
+Bind workspace dispatcher
+===========================
+
+bind=,A,workspace,1
+bind=,A,workspace,-1
+bind=,A,workspace,m+10
+bind=,A,workspace,r-110
+bind=,A,workspace,e-1
+bind=,A,workspace,name:Web
+bind=,A,workspace,previous
+bind=,A,workspace,empty
+bind=,A,workspace,special
+bind=,A,workspace,special:Web
+
+---
+
+(config_file
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace id: (int)))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace relative_id: (int)))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace relative: (workspace_relative (workspace_relative_specifier) (int))))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace relative: (workspace_relative (workspace_relative_specifier) (int))))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace relative: (workspace_relative (workspace_relative_specifier) (int))))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace name: (word)))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace (previous)))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace (empty)))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace special: (workspace_special)))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace special: (workspace_special (word)))))))
+
+=================================
+Bind movetoworkspace dispatcher
+=================================
+
+bind=,A,movetoworkspace,1
+bind=,A,movetoworkspace,1,pid:1
+bind=,A,movetoworkspace,name:Web,name:Kitty
+
+---
+
+(config_file
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace id: (int)))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace id: (int)) (window_identifier (pid_specifier (int))))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace name: (word)) (window_identifier (regex))))))
+
+=================================
+Bind movetoworkspacesilent dispatcher
+=================================
+
+bind=,A,movetoworkspacesilent,1
+bind=,A,movetoworkspacesilent,1,pid:1
+bind=,A,movetoworkspacesilent,name:Web,name:Kitty
+
+---
+
+(config_file
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace id: (int)))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace id: (int)) (window_identifier (pid_specifier (int))))))
+  (command
+    (command_bind
+      (key (symbol))
+      (dispatcher (workspace name: (word)) (window_identifier (regex))))))

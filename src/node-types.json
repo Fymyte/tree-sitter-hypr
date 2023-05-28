@@ -1,6 +1,27 @@
 [
   {
+    "type": "address_specifier",
+    "named": true,
+    "fields": {
+      "address": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "hex",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "auto_resolution",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "bind_flag",
     "named": true,
     "fields": {}
   },
@@ -22,6 +43,11 @@
   },
   {
     "type": "bool",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "by",
     "named": true,
     "fields": {}
   },
@@ -72,6 +98,10 @@
       "required": true,
       "types": [
         {
+          "type": "command_bind",
+          "named": true
+        },
+        {
           "type": "command_env",
           "named": true
         },
@@ -97,6 +127,48 @@
         },
         {
           "type": "command_source",
+          "named": true
+        },
+        {
+          "type": "command_unbind",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "command_bind",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "bind",
+            "named": false
+          },
+          {
+            "type": "bind_flag",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dispatcher",
+          "named": true
+        },
+        {
+          "type": "key",
+          "named": true
+        },
+        {
+          "type": "mods",
           "named": true
         }
       ]
@@ -365,6 +437,36 @@
     }
   },
   {
+    "type": "command_unbind",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "unbind",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "key",
+          "named": true
+        },
+        {
+          "type": "mods",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "comment",
     "named": true,
     "fields": {}
@@ -415,6 +517,292 @@
     }
   },
   {
+    "type": "direction",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "dispatcher",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "bringactivetotop",
+            "named": false
+          },
+          {
+            "type": "centerwindow",
+            "named": false
+          },
+          {
+            "type": "changegroupactive",
+            "named": false
+          },
+          {
+            "type": "closewindow",
+            "named": false
+          },
+          {
+            "type": "cyclenext",
+            "named": false
+          },
+          {
+            "type": "dpms",
+            "named": false
+          },
+          {
+            "type": "exec",
+            "named": false
+          },
+          {
+            "type": "execr",
+            "named": false
+          },
+          {
+            "type": "exit",
+            "named": false
+          },
+          {
+            "type": "fakefullscreen",
+            "named": false
+          },
+          {
+            "type": "focuscurrentorlast",
+            "named": false
+          },
+          {
+            "type": "focusmonitor",
+            "named": false
+          },
+          {
+            "type": "focusurgentorlast",
+            "named": false
+          },
+          {
+            "type": "focuswindow",
+            "named": false
+          },
+          {
+            "type": "forcerendererreload",
+            "named": false
+          },
+          {
+            "type": "fullscreen",
+            "named": false
+          },
+          {
+            "type": "global",
+            "named": false
+          },
+          {
+            "type": "killactive",
+            "named": false
+          },
+          {
+            "type": "lockgroups",
+            "named": false
+          },
+          {
+            "type": "moveactive",
+            "named": false
+          },
+          {
+            "type": "movecurrentworkspacetomonitor",
+            "named": false
+          },
+          {
+            "type": "movecursor",
+            "named": false
+          },
+          {
+            "type": "movecursortocorner",
+            "named": false
+          },
+          {
+            "type": "movefocus",
+            "named": false
+          },
+          {
+            "type": "moveintogroup",
+            "named": false
+          },
+          {
+            "type": "moveoutofgroup",
+            "named": false
+          },
+          {
+            "type": "movetoworkspace",
+            "named": false
+          },
+          {
+            "type": "movetoworkspacesilent",
+            "named": false
+          },
+          {
+            "type": "movewindow",
+            "named": false
+          },
+          {
+            "type": "movewindowpixel",
+            "named": false
+          },
+          {
+            "type": "moveworkspacetomonitor",
+            "named": false
+          },
+          {
+            "type": "pass",
+            "named": false
+          },
+          {
+            "type": "pin",
+            "named": false
+          },
+          {
+            "type": "renameworkspace",
+            "named": false
+          },
+          {
+            "type": "resizeactive",
+            "named": false
+          },
+          {
+            "type": "resizewindowpixel",
+            "named": false
+          },
+          {
+            "type": "splitratio",
+            "named": false
+          },
+          {
+            "type": "swapactiveworkspaces",
+            "named": false
+          },
+          {
+            "type": "swapnext",
+            "named": false
+          },
+          {
+            "type": "swapwindow",
+            "named": false
+          },
+          {
+            "type": "togglefloating",
+            "named": false
+          },
+          {
+            "type": "togglegroup",
+            "named": false
+          },
+          {
+            "type": "toggleopaque",
+            "named": false
+          },
+          {
+            "type": "togglespecialworkspace",
+            "named": false
+          },
+          {
+            "type": "workspace",
+            "named": false
+          },
+          {
+            "type": "workspaceopt",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "direction",
+          "named": true
+        },
+        {
+          "type": "floatvalue",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "lock_option",
+          "named": true
+        },
+        {
+          "type": "monitor",
+          "named": true
+        },
+        {
+          "type": "prev",
+          "named": true
+        },
+        {
+          "type": "resizeparams",
+          "named": true
+        },
+        {
+          "type": "shell_command",
+          "named": true
+        },
+        {
+          "type": "str",
+          "named": true
+        },
+        {
+          "type": "window_identifier",
+          "named": true
+        },
+        {
+          "type": "windowrule",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        },
+        {
+          "type": "workspace",
+          "named": true
+        },
+        {
+          "type": "workspaceopt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "floatvalue",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "exact",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "gradient",
     "named": true,
     "fields": {},
@@ -434,9 +822,42 @@
     }
   },
   {
-    "type": "layer_address",
+    "type": "key",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "keycode",
+          "named": true
+        },
+        {
+          "type": "mousecode",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "keycode",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "int",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "layer_identifier",
@@ -447,7 +868,7 @@
       "required": true,
       "types": [
         {
-          "type": "layer_address",
+          "type": "address_specifier",
           "named": true
         },
         {
@@ -463,10 +884,33 @@
     "fields": {}
   },
   {
+    "type": "lock_option",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "lock",
+          "named": true
+        },
+        {
+          "type": "toggle",
+          "named": true
+        },
+        {
+          "type": "unlock",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "mirror",
     "named": true,
     "fields": {
-      "mirror": {
+      "monitor": {
         "multiple": false,
         "required": true,
         "types": [
@@ -488,9 +932,108 @@
     "fields": {}
   },
   {
+    "type": "mods",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "mod",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "monitor",
+    "named": true,
+    "fields": {
+      "id": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "monitor_desc",
+            "named": true
+          },
+          {
+            "type": "word",
+            "named": true
+          }
+        ]
+      },
+      "relative": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "current",
+          "named": true
+        },
+        {
+          "type": "direction",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "monitor_desc",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "mousecode",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "int",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pid_specifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "int",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "position",
@@ -523,6 +1066,30 @@
       "types": [
         {
           "type": "by",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "regex",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "resizeparams",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "exact",
+          "named": true
+        },
+        {
+          "type": "vec2",
           "named": true
         }
       ]
@@ -1101,6 +1668,26 @@
     }
   },
   {
+    "type": "symbol",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "title_specifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "regex",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "transform",
     "named": true,
     "fields": {
@@ -1211,6 +1798,160 @@
     }
   },
   {
+    "type": "window_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "address_specifier",
+          "named": true
+        },
+        {
+          "type": "pid_specifier",
+          "named": true
+        },
+        {
+          "type": "regex",
+          "named": true
+        },
+        {
+          "type": "title_specifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "windowrule",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "workspace",
+    "named": true,
+    "fields": {
+      "id": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": false
+          },
+          {
+            "type": "word",
+            "named": true
+          }
+        ]
+      },
+      "relative": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "workspace_relative",
+            "named": true
+          }
+        ]
+      },
+      "relative_id": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      },
+      "special": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "workspace_special",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "empty",
+          "named": true
+        },
+        {
+          "type": "previous",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "workspace_relative",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "workspace_relative_specifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "workspace_relative_specifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "workspace_special",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "workspaceopt",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "#",
     "named": false
   },
@@ -1243,7 +1984,43 @@
     "named": false
   },
   {
+    "type": "2",
+    "named": false
+  },
+  {
+    "type": "3",
+    "named": false
+  },
+  {
+    "type": "4",
+    "named": false
+  },
+  {
+    "type": "5",
+    "named": false
+  },
+  {
+    "type": "6",
+    "named": false
+  },
+  {
+    "type": "7",
+    "named": false
+  },
+  {
+    "type": "8",
+    "named": false
+  },
+  {
+    "type": "9",
+    "named": false
+  },
+  {
     "type": ":",
+    "named": false
+  },
+  {
+    "type": ";",
     "named": false
   },
   {
@@ -1251,7 +2028,19 @@
     "named": false
   },
   {
+    "type": "A",
+    "named": false
+  },
+  {
     "type": "ALT",
+    "named": false
+  },
+  {
+    "type": "B",
+    "named": false
+  },
+  {
+    "type": "C",
     "named": false
   },
   {
@@ -1267,7 +2056,47 @@
     "named": false
   },
   {
+    "type": "D",
+    "named": false
+  },
+  {
+    "type": "E",
+    "named": false
+  },
+  {
+    "type": "F",
+    "named": false
+  },
+  {
+    "type": "G",
+    "named": false
+  },
+  {
+    "type": "H",
+    "named": false
+  },
+  {
+    "type": "I",
+    "named": false
+  },
+  {
+    "type": "J",
+    "named": false
+  },
+  {
+    "type": "K",
+    "named": false
+  },
+  {
+    "type": "L",
+    "named": false
+  },
+  {
     "type": "LOGO",
+    "named": false
+  },
+  {
+    "type": "M",
     "named": false
   },
   {
@@ -1287,6 +2116,30 @@
     "named": false
   },
   {
+    "type": "N",
+    "named": false
+  },
+  {
+    "type": "O",
+    "named": false
+  },
+  {
+    "type": "P",
+    "named": false
+  },
+  {
+    "type": "Q",
+    "named": false
+  },
+  {
+    "type": "R",
+    "named": false
+  },
+  {
+    "type": "S",
+    "named": false
+  },
+  {
     "type": "SHIFT",
     "named": false
   },
@@ -1295,11 +2148,55 @@
     "named": false
   },
   {
+    "type": "T",
+    "named": false
+  },
+  {
+    "type": "U",
+    "named": false
+  },
+  {
+    "type": "V",
+    "named": false
+  },
+  {
+    "type": "W",
+    "named": false
+  },
+  {
     "type": "WIN",
     "named": false
   },
   {
+    "type": "X",
+    "named": false
+  },
+  {
+    "type": "Y",
+    "named": false
+  },
+  {
+    "type": "Z",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "_",
+    "named": false
+  },
+  {
+    "type": "a",
+    "named": false
+  },
+  {
     "type": "accel_profile",
+    "named": false
+  },
+  {
+    "type": "active",
     "named": false
   },
   {
@@ -1311,11 +2208,19 @@
     "named": false
   },
   {
+    "type": "allfloat",
+    "named": false
+  },
+  {
     "type": "allow_session_lock_restore",
     "named": false
   },
   {
     "type": "allow_workspace_cycles",
+    "named": false
+  },
+  {
+    "type": "allpseudo",
     "named": false
   },
   {
@@ -1345,6 +2250,14 @@
   {
     "type": "auto",
     "named": true
+  },
+  {
+    "type": "b",
+    "named": false
+  },
+  {
+    "type": "bind",
+    "named": false
   },
   {
     "type": "binds",
@@ -1383,11 +2296,31 @@
     "named": false
   },
   {
-    "type": "by",
-    "named": true
+    "type": "bringactivetotop",
+    "named": false
+  },
+  {
+    "type": "c",
+    "named": false
+  },
+  {
+    "type": "centerwindow",
+    "named": false
+  },
+  {
+    "type": "changegroupactive",
+    "named": false
   },
   {
     "type": "clickfinger_behavior",
+    "named": false
+  },
+  {
+    "type": "closewindow",
+    "named": false
+  },
+  {
+    "type": "code",
     "named": false
   },
   {
@@ -1415,6 +2348,10 @@
     "named": false
   },
   {
+    "type": "current",
+    "named": true
+  },
+  {
     "type": "cursor_inactive_timeout",
     "named": false
   },
@@ -1424,6 +2361,14 @@
   },
   {
     "type": "cursor_zoom_rigid",
+    "named": false
+  },
+  {
+    "type": "cyclenext",
+    "named": false
+  },
+  {
+    "type": "d",
     "named": false
   },
   {
@@ -1499,12 +2444,24 @@
     "named": false
   },
   {
+    "type": "dpms",
+    "named": false
+  },
+  {
     "type": "drag_lock",
     "named": false
   },
   {
     "type": "drop_shadow",
     "named": false
+  },
+  {
+    "type": "e",
+    "named": false
+  },
+  {
+    "type": "empty",
+    "named": true
   },
   {
     "type": "enable_stdout_logs",
@@ -1527,6 +2484,10 @@
     "named": false
   },
   {
+    "type": "exact",
+    "named": true
+  },
+  {
     "type": "exec",
     "named": false
   },
@@ -1535,7 +2496,23 @@
     "named": false
   },
   {
+    "type": "execr",
+    "named": false
+  },
+  {
+    "type": "exit",
+    "named": false
+  },
+  {
     "type": "extend_border_grab_area",
+    "named": false
+  },
+  {
+    "type": "f",
+    "named": false
+  },
+  {
+    "type": "fakefullscreen",
     "named": false
   },
   {
@@ -1559,6 +2536,22 @@
     "named": false
   },
   {
+    "type": "focuscurrentorlast",
+    "named": false
+  },
+  {
+    "type": "focusmonitor",
+    "named": false
+  },
+  {
+    "type": "focusurgentorlast",
+    "named": false
+  },
+  {
+    "type": "focuswindow",
+    "named": false
+  },
+  {
     "type": "follow_mouse",
     "named": false
   },
@@ -1567,7 +2560,19 @@
     "named": false
   },
   {
+    "type": "forcerendererreload",
+    "named": false
+  },
+  {
+    "type": "fullscreen",
+    "named": false
+  },
+  {
     "type": "fullscreen_opacity",
+    "named": false
+  },
+  {
+    "type": "g",
     "named": false
   },
   {
@@ -1587,12 +2592,24 @@
     "named": false
   },
   {
+    "type": "global",
+    "named": false
+  },
+  {
     "type": "groupbar_gradients",
     "named": false
   },
   {
     "type": "groupbar_titles_font_size",
     "named": false
+  },
+  {
+    "type": "h",
+    "named": false
+  },
+  {
+    "type": "hex",
+    "named": true
   },
   {
     "type": "hide_cursor_on_touch",
@@ -1611,6 +2628,10 @@
     "named": false
   },
   {
+    "type": "i",
+    "named": false
+  },
+  {
     "type": "inactive_opacity",
     "named": false
   },
@@ -1621,6 +2642,14 @@
   {
     "type": "int",
     "named": true
+  },
+  {
+    "type": "j",
+    "named": false
+  },
+  {
+    "type": "k",
+    "named": false
   },
   {
     "type": "kb_file",
@@ -1651,6 +2680,14 @@
     "named": false
   },
   {
+    "type": "killactive",
+    "named": false
+  },
+  {
+    "type": "l",
+    "named": false
+  },
+  {
     "type": "layer_namespace",
     "named": true
   },
@@ -1671,6 +2708,22 @@
     "named": false
   },
   {
+    "type": "lock",
+    "named": true
+  },
+  {
+    "type": "lockactivegroup",
+    "named": false
+  },
+  {
+    "type": "lockgroups",
+    "named": false
+  },
+  {
+    "type": "m",
+    "named": false
+  },
+  {
     "type": "manual_crash",
     "named": false
   },
@@ -1687,7 +2740,15 @@
     "named": false
   },
   {
+    "type": "mon:",
+    "named": false
+  },
+  {
     "type": "monitor",
+    "named": false
+  },
+  {
+    "type": "mouse",
     "named": false
   },
   {
@@ -1703,7 +2764,63 @@
     "named": false
   },
   {
+    "type": "moveactive",
+    "named": false
+  },
+  {
+    "type": "movecurrentworkspacetomonitor",
+    "named": false
+  },
+  {
+    "type": "movecursor",
+    "named": false
+  },
+  {
+    "type": "movecursortocorner",
+    "named": false
+  },
+  {
+    "type": "movefocus",
+    "named": false
+  },
+  {
+    "type": "moveintogroup",
+    "named": false
+  },
+  {
+    "type": "moveoutofgroup",
+    "named": false
+  },
+  {
+    "type": "movetoworkspace",
+    "named": false
+  },
+  {
+    "type": "movetoworkspacesilent",
+    "named": false
+  },
+  {
+    "type": "movewindow",
+    "named": false
+  },
+  {
+    "type": "movewindowpixel",
+    "named": false
+  },
+  {
+    "type": "moveworkspacetomonitor",
+    "named": false
+  },
+  {
     "type": "multisample_edges",
+    "named": false
+  },
+  {
+    "type": "n",
+    "named": false
+  },
+  {
+    "type": "name",
     "named": false
   },
   {
@@ -1735,6 +2852,10 @@
     "named": false
   },
   {
+    "type": "o",
+    "named": false
+  },
+  {
     "type": "off",
     "named": false
   },
@@ -1751,11 +2872,47 @@
     "named": false
   },
   {
+    "type": "p",
+    "named": false
+  },
+  {
+    "type": "pass",
+    "named": false
+  },
+  {
     "type": "pass_mouse_when_bound",
     "named": false
   },
   {
+    "type": "pid",
+    "named": false
+  },
+  {
+    "type": "pin",
+    "named": false
+  },
+  {
     "type": "preferred",
+    "named": false
+  },
+  {
+    "type": "prev",
+    "named": true
+  },
+  {
+    "type": "previous",
+    "named": true
+  },
+  {
+    "type": "q",
+    "named": false
+  },
+  {
+    "type": "r",
+    "named": false
+  },
+  {
+    "type": "renameworkspace",
     "named": false
   },
   {
@@ -1783,6 +2940,14 @@
     "named": false
   },
   {
+    "type": "resizeactive",
+    "named": false
+  },
+  {
+    "type": "resizewindowpixel",
+    "named": false
+  },
+  {
     "type": "rgb",
     "named": false
   },
@@ -1792,6 +2957,10 @@
   },
   {
     "type": "rounding",
+    "named": false
+  },
+  {
+    "type": "s",
     "named": false
   },
   {
@@ -1847,6 +3016,14 @@
     "named": false
   },
   {
+    "type": "special",
+    "named": false
+  },
+  {
+    "type": "splitratio",
+    "named": false
+  },
+  {
     "type": "str",
     "named": true
   },
@@ -1863,6 +3040,22 @@
     "named": false
   },
   {
+    "type": "swapactiveworkspaces",
+    "named": false
+  },
+  {
+    "type": "swapnext",
+    "named": false
+  },
+  {
+    "type": "swapwindow",
+    "named": false
+  },
+  {
+    "type": "t",
+    "named": false
+  },
+  {
     "type": "tap-and-drag",
     "named": false
   },
@@ -1872,6 +3065,30 @@
   },
   {
     "type": "tap_button_map",
+    "named": false
+  },
+  {
+    "type": "title",
+    "named": false
+  },
+  {
+    "type": "toggle",
+    "named": true
+  },
+  {
+    "type": "togglefloating",
+    "named": false
+  },
+  {
+    "type": "togglegroup",
+    "named": false
+  },
+  {
+    "type": "toggleopaque",
+    "named": false
+  },
+  {
+    "type": "togglespecialworkspace",
     "named": false
   },
   {
@@ -1891,7 +3108,23 @@
     "named": false
   },
   {
+    "type": "u",
+    "named": false
+  },
+  {
+    "type": "unbind",
+    "named": false
+  },
+  {
+    "type": "unlock",
+    "named": true
+  },
+  {
     "type": "unset",
+    "named": false
+  },
+  {
+    "type": "v",
     "named": false
   },
   {
@@ -1903,8 +3136,24 @@
     "named": false
   },
   {
+    "type": "w",
+    "named": false
+  },
+  {
+    "type": "windowrule",
+    "named": false
+  },
+  {
+    "type": "windowrulev2",
+    "named": false
+  },
+  {
     "type": "word",
     "named": true
+  },
+  {
+    "type": "workspace",
+    "named": false
   },
   {
     "type": "workspace_back_and_forth",
@@ -1947,7 +3196,23 @@
     "named": false
   },
   {
+    "type": "workspaceopt",
+    "named": false
+  },
+  {
+    "type": "x",
+    "named": false
+  },
+  {
+    "type": "y",
+    "named": false
+  },
+  {
     "type": "yes",
+    "named": false
+  },
+  {
+    "type": "z",
     "named": false
   },
   {
