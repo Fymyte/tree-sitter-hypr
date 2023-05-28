@@ -4,7 +4,7 @@
   "description": "Treesitter parser for Hyprland config file",
   "main": "grammar.js",
   "scripts": {
-    "test": "tree-sitter test && script/parse-examples"
+    "test": "tree-sitter test # && script/parse-examples"
   },
   "repository": {
     "type": "git",

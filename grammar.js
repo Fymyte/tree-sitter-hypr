@@ -1,5 +1,7 @@
 /// <reference types="tree-sitter-cli/dsl" />
 
+const { node_with_immediate } = require("./rules/utils");
+
 const MODS_LIST = [
   "SHIFT",
   "CAPS",
@@ -15,6 +17,7 @@ const MODS_LIST = [
   "MOD5",
 ];
 
+const VALID_BOOL = ["true", "false", "yes", "no", "on", "off", "0", "1"];
 module.exports = grammar({
   name: "hypr",
 
@@ -22,26 +25,22 @@ module.exports = grammar({
 
   rules: {
     config_file: ($) =>
-      repeat(
-        choice(
-          $._newline,
-          $.variable_section,
-          $.command
-        )
-      ),
+      repeat(choice($._newline, $.variable_section, $.command)),
 
-    comment: ($) => seq("#", token.immediate(/[^\n]*/)),
+    comment: (_$) => seq("#", token.immediate(/[^\n]*/)),
 
-    int: (_$) => /[+-]?\d+/,
-    _immediate_int: (_$) => token.immediate(/[+-]?\d+/),
-    float: (_$) => /[+-]?\d+(?:\.\d*)?|[+-]?\.\d+/,
-    _immediate_float: (_$) => token.immediate(/[+-]?\d+(?:\.\d*)?|[+-]?\.\d+/),
+    ...node_with_immediate("int", /[+-]?\d+/),
+    ...node_with_immediate("float", /[+-]?\d+(?:\.\d*)?|[+-]?\.\d+/),
+    ...node_with_immediate("hex", /[a-fA-F0-9]+/),
+    // The regex only starts with the first non whitespace character
+    ...node_with_immediate("regex", seq(/\S/, repeat(/[^,\n]/))),
     vec2: ($) => seq($.float, $.float),
     mod: (_$) => choice(...MODS_LIST),
-    mods: ($) => sep1($.mod, /[^,]*/),
-    bool: ($) => choice($._bool_literal, $._bool_integer),
-    _bool_literal: (_$) => choice("true", "false", "yes", "no", "on", "off"),
-    _bool_integer: (_$) => choice("0", "1"),
+    // Use repeat instead of regex '*' to use tree-sitter precedence and prefere matching mod instead of getting
+    // a greedy match with regex.
+    mods: ($) => sep1($.mod, repeat(/[^,]/)),
+    bool: (_$) => choice(...VALID_BOOL),
+    _object_id: ($) => alias(/\d+/, $.int),
 
     color: ($) => choice($.color_rgb, $.color_rgba, $.color_hex),
     color_rgb: ($) =>
@@ -65,7 +64,7 @@ module.exports = grammar({
     degree: ($) => seq($.int, field("unit", token.immediate("deg"))),
 
     str: (_$) => /\S+/,
-    word: (_$) => /[a-zA-Z0-9-_]+/,
+    ...node_with_immediate("word", /[a-zA-Z0-9-_]+/),
 
     variable_reference: (_$) => seq("$", /\w+/),
 
