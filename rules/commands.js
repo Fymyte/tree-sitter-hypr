@@ -3,6 +3,7 @@ const {
   immediate,
   arglist,
   specifier,
+  sep1,
 } = require("./utils.js");
 
 module.exports = {
@@ -17,7 +18,10 @@ module.exports = {
         $.command_envd,
         $.command_monitor,
         $.command_bind,
-        $.command_unbind
+        $.command_unbind,
+        $.command_submap,
+        $.command_windowrule,
+        $.command_windowrulev2
       ),
       $._newline
     ),
@@ -31,10 +35,7 @@ module.exports = {
   address_specifier: ($) =>
     specifier(
       "address",
-      seq(
-        token.immediate("0x"),
-        field("address", immediate($, "hex"))
-      )
+      seq(token.immediate("0x"), field("address", immediate($, "hex")))
     ),
 
   layer_rule: (_$) => choice("blur", "unset"),
@@ -93,10 +94,8 @@ module.exports = {
     command("monitor", choice($._monitor_disable, $._monitor_config)),
 
   ...require("./assets/xkb_key_names.js"),
-  keycode: ($) =>
-    seq("code", token.immediate(":"), immediate($, 'int')),
-  mousecode: ($) =>
-    seq("mouse", token.immediate(":"), immediate($, 'int')),
+  keycode: ($) => seq("code", token.immediate(":"), immediate($, "int")),
+  mousecode: ($) => seq("mouse", token.immediate(":"), immediate($, "int")),
   key: ($) => choice($.keycode, $.mousecode, $.symbol),
 
   bind_flag: (_$) => choice(...["l", "r", "e"].map(token.immediate)),
@@ -114,11 +113,22 @@ module.exports = {
   _regular_bind: ($) =>
     command(
       seq("bind", optional($._bind_flags)),
-      arglist(optional($.mods), $.key, $.dispatcher),
+      arglist(optional($.mods), $.key, $.dispatcher)
     ),
   command_bind: ($) => choice($._mouse_bind, $._regular_bind),
 
   command_unbind: ($) => command("unbind", arglist(optional($.mods), $.key)),
+
+  command_submap: ($) => command("submap", $.word),
+
+  command_windowrule: ($) =>
+    command("windowrule", arglist($.rule, $._rulev1_window_identifier)),
+
+  command_windowrulev2: ($) =>
+    command(
+      "windowrulev2",
+      arglist($.rule, sep1($._rulev2_window_identifier, ","))
+    ),
 
   by: (_$) => token.immediate("x"),
   at: (_$) => token.immediate("@"),

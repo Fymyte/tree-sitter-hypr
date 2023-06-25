@@ -98,9 +98,9 @@ decoration {
 
 (config_file
   (variable_section
-    (section_variable (color (color_rgb)))
-    (section_variable (color (color_rgba)))
-    (section_variable (color (color_hex)))))
+    (section_variable (color (color_rgb (hex))))
+    (section_variable (color (color_rgba (hex))))
+    (section_variable (color (color_hex (hex))))))
 
 =====================
 Gradient value
@@ -118,11 +118,11 @@ general {
 
 (config_file
   (variable_section
-    (section_variable (gradient (color (color_rgb))))
-    (section_variable (gradient (color (color_rgb)) (color (color_rgb)) (color (color_rgb))))
-    (section_variable (gradient (color (color_rgb)) (degree (int))))
-    (section_variable (gradient (color (color_rgb)) (degree (int))))
-    (section_variable (gradient (color (color_rgb)) (color (color_hex)) (degree (int))))))
+    (section_variable (gradient (color (color_rgb (hex)))))
+    (section_variable (gradient (color (color_rgb (hex))) (color (color_rgb (hex))) (color (color_rgb (hex)))))
+    (section_variable (gradient (color (color_rgb (hex))) (degree (int))))
+    (section_variable (gradient (color (color_rgb (hex))) (degree (int))))
+    (section_variable (gradient (color (color_rgb (hex))) (color (color_hex (hex))) (degree (int))))))
 
 ==============================
 General section all default
@@ -157,10 +157,10 @@ general {
     (section_variable (bool))
     (section_variable (int))
     (section_variable (int))
-    (section_variable (gradient (color (color_hex))))
-    (section_variable (gradient (color (color_hex))))
-    (section_variable (gradient (color (color_hex))))
-    (section_variable (gradient (color (color_hex))))
+    (section_variable (gradient (color (color_hex (hex)))))
+    (section_variable (gradient (color (color_hex (hex)))))
+    (section_variable (gradient (color (color_hex (hex)))))
+    (section_variable (gradient (color (color_hex (hex)))))
     (section_variable (int))
     (section_variable (str))
     (section_variable (bool))
@@ -221,8 +221,8 @@ decoration {
     (section_variable (int))
     (section_variable (int))
     (section_variable (bool))
-    (section_variable (color (color_hex)))
-    (section_variable (color (color_hex)))
+    (section_variable (color (color_hex (hex))))
+    (section_variable (color (color_hex (hex))))
     (section_variable (vec2 (float) (float)))
     (section_variable (float))
     (section_variable (bool))

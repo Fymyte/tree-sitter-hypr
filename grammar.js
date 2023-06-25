@@ -1,6 +1,11 @@
 /// <reference types="tree-sitter-cli/dsl" />
 
-const { node_with_immediate } = require("./rules/utils");
+const {
+  node_with_immediate,
+  immediate,
+  sep1,
+  repeatn,
+} = require("./rules/utils");
 
 const MODS_LIST = [
   "SHIFT",
@@ -28,6 +33,7 @@ module.exports = grammar({
       repeat(choice($._newline, $.variable_section, $.command)),
 
     comment: (_$) => seq("#", token.immediate(/[^\n]*/)),
+    _newline: (_$) => "\n",
 
     ...node_with_immediate("int", /[+-]?\d+/),
     ...node_with_immediate("float", /[+-]?\d+(?:\.\d*)?|[+-]?\.\d+/),
@@ -39,25 +45,38 @@ module.exports = grammar({
     // Use repeat instead of regex '*' to use tree-sitter precedence and prefere matching mod instead of getting
     // a greedy match with regex.
     mods: ($) => sep1($.mod, repeat(/[^,]/)),
-    bool: (_$) => choice(...VALID_BOOL),
+    ...node_with_immediate("bool", choice(...VALID_BOOL)),
+    // bool: (_$) => choice(...VALID_BOOL),
     _object_id: ($) => alias(/\d+/, $.int),
+
+    // Use regex for 100 to not have higher precedence than other int
+    _100_percent: ($) => seq(alias(/100/, $.int), token.immediate("%")),
+    _negative_percent: ($) =>
+      seq(
+        seq(/100%-/),
+        // token.immediate("-"),
+        immediate($, "int")
+      ),
+    percent: ($) => seq($.int, token.immediate("%")),
 
     color: ($) => choice($.color_rgb, $.color_rgba, $.color_hex),
     color_rgb: ($) =>
       seq(
         "rgb",
         token.immediate("("),
-        repeatn($._hex_comp, 3),
+        alias($._color_hex3, $.hex),
         token.immediate(")")
       ),
     color_rgba: ($) =>
       seq(
         "rgba",
         token.immediate("("),
-        repeatn($._hex_comp, 4),
+        alias($._color_hex4, $.hex),
         token.immediate(")")
       ),
-    color_hex: ($) => seq("0x", repeatn($._hex_comp, 4)),
+    color_hex: ($) => seq("0x", alias($._color_hex4, $.hex)),
+    _color_hex3: ($) => repeatn($._hex_comp, 3),
+    _color_hex4: ($) => repeatn($._hex_comp, 4),
     _hex_comp: (_$) => token.immediate(/[a-fA-F0-9]{2}/),
 
     gradient: ($) => seq(repeat1($.color), optional($.degree)),
@@ -68,17 +87,8 @@ module.exports = grammar({
 
     variable_reference: (_$) => seq("$", /\w+/),
 
-    _newline: (_$) => "\n",
-
     ...require("./rules/variables"),
     ...require("./rules/commands"),
+    ...require("./rules/animations"),
   },
 });
-
-function sep1(rule, separator) {
-  return seq(rule, repeat(seq(separator, rule)));
-}
-
-function repeatn(rule, n) {
-  return seq(...Array(n).fill(rule));
-}

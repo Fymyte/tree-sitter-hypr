@@ -52,6 +52,21 @@
     "fields": {}
   },
   {
+    "type": "class_specifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "regex",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "color",
     "named": true,
     "fields": {},
@@ -77,17 +92,47 @@
   {
     "type": "color_hex",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "hex",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "color_rgb",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "hex",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "color_rgba",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "hex",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "command",
@@ -130,7 +175,19 @@
           "named": true
         },
         {
+          "type": "command_submap",
+          "named": true
+        },
+        {
           "type": "command_unbind",
+          "named": true
+        },
+        {
+          "type": "command_windowrule",
+          "named": true
+        },
+        {
+          "type": "command_windowrulev2",
           "named": true
         }
       ]
@@ -437,6 +494,32 @@
     }
   },
   {
+    "type": "command_submap",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "submap",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "command_unbind",
     "named": true,
     "fields": {
@@ -461,6 +544,66 @@
         },
         {
           "type": "mods",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "command_windowrule",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "windowrule",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "rule",
+          "named": true
+        },
+        {
+          "type": "window_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "command_windowrulev2",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "windowrulev2",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "rule",
+          "named": true
+        },
+        {
+          "type": "window_identifier",
           "named": true
         }
       ]
@@ -678,6 +821,10 @@
             "named": false
           },
           {
+            "type": "submap",
+            "named": false
+          },
+          {
             "type": "swapactiveworkspaces",
             "named": false
           },
@@ -753,6 +900,10 @@
           "named": true
         },
         {
+          "type": "rule",
+          "named": true
+        },
+        {
           "type": "shell_command",
           "named": true
         },
@@ -765,10 +916,6 @@
           "named": true
         },
         {
-          "type": "windowrule",
-          "named": true
-        },
-        {
           "type": "word",
           "named": true
         },
@@ -778,6 +925,21 @@
         },
         {
           "type": "workspaceopt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "floating_specifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "bool",
           "named": true
         }
       ]
@@ -803,6 +965,21 @@
     }
   },
   {
+    "type": "fullscreen_specifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "bool",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "gradient",
     "named": true,
     "fields": {},
@@ -820,6 +997,16 @@
         }
       ]
     }
+  },
+  {
+    "type": "hex",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "inhibit_mode",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "key",
@@ -1021,6 +1208,40 @@
     }
   },
   {
+    "type": "opacity",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "override",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "percent",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "int",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "pid_specifier",
     "named": true,
     "fields": {},
@@ -1030,6 +1251,21 @@
       "types": [
         {
           "type": "int",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pinned_specifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "bool",
           "named": true
         }
       ]
@@ -1140,6 +1376,86 @@
         },
         {
           "type": "by",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "rule",
+    "named": true,
+    "fields": {
+      "active": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "color",
+            "named": true
+          },
+          {
+            "type": "opacity",
+            "named": true
+          }
+        ]
+      },
+      "inactive": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "color",
+            "named": true
+          },
+          {
+            "type": "opacity",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "color",
+          "named": true
+        },
+        {
+          "type": "inhibit_mode",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "monitor_desc",
+          "named": true
+        },
+        {
+          "type": "opacity",
+          "named": true
+        },
+        {
+          "type": "percent",
+          "named": true
+        },
+        {
+          "type": "silent",
+          "named": true
+        },
+        {
+          "type": "unset",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        },
+        {
+          "type": "workspace",
           "named": true
         }
       ]
@@ -1704,6 +2020,11 @@
     }
   },
   {
+    "type": "unset",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "variable_reference",
     "named": true,
     "fields": {}
@@ -1810,7 +2131,23 @@
           "named": true
         },
         {
+          "type": "class_specifier",
+          "named": true
+        },
+        {
+          "type": "floating_specifier",
+          "named": true
+        },
+        {
+          "type": "fullscreen_specifier",
+          "named": true
+        },
+        {
           "type": "pid_specifier",
+          "named": true
+        },
+        {
+          "type": "pinned_specifier",
           "named": true
         },
         {
@@ -1820,14 +2157,13 @@
         {
           "type": "title_specifier",
           "named": true
+        },
+        {
+          "type": "xwayland_specifier",
+          "named": true
         }
       ]
     }
-  },
-  {
-    "type": "windowrule",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "workspace",
@@ -1952,11 +2288,30 @@
     "fields": {}
   },
   {
+    "type": "xwayland_specifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "bool",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "#",
     "named": false
   },
   {
     "type": "$",
+    "named": false
+  },
+  {
+    "type": "%",
     "named": false
   },
   {
@@ -2224,6 +2579,10 @@
     "named": false
   },
   {
+    "type": "always",
+    "named": false
+  },
+  {
     "type": "always_follow_on_dnd",
     "named": false
   },
@@ -2296,6 +2655,10 @@
     "named": false
   },
   {
+    "type": "bordercolor",
+    "named": false
+  },
+  {
     "type": "bringactivetotop",
     "named": false
   },
@@ -2309,6 +2672,10 @@
   },
   {
     "type": "changegroupactive",
+    "named": false
+  },
+  {
+    "type": "class",
     "named": false
   },
   {
@@ -2350,6 +2717,10 @@
   {
     "type": "current",
     "named": true
+  },
+  {
+    "type": "cursor",
+    "named": false
   },
   {
     "type": "cursor_inactive_timeout",
@@ -2528,6 +2899,14 @@
     "named": false
   },
   {
+    "type": "floating",
+    "named": false
+  },
+  {
+    "type": "focus",
+    "named": false
+  },
+  {
     "type": "focus_on_activate",
     "named": false
   },
@@ -2608,10 +2987,6 @@
     "named": false
   },
   {
-    "type": "hex",
-    "named": true
-  },
-  {
     "type": "hide_cursor_on_touch",
     "named": false
   },
@@ -2629,6 +3004,10 @@
   },
   {
     "type": "i",
+    "named": false
+  },
+  {
+    "type": "idleinhibit",
     "named": false
   },
   {
@@ -2728,7 +3107,15 @@
     "named": false
   },
   {
+    "type": "maxsize",
+    "named": false
+  },
+  {
     "type": "middle_button_emulation",
+    "named": false
+  },
+  {
+    "type": "minsize",
     "named": false
   },
   {
@@ -2761,6 +3148,10 @@
   },
   {
     "type": "mouse_refocus",
+    "named": false
+  },
+  {
+    "type": "move",
     "named": false
   },
   {
@@ -2848,6 +3239,10 @@
     "named": false
   },
   {
+    "type": "none",
+    "named": false
+  },
+  {
     "type": "numlock_by_default",
     "named": false
   },
@@ -2864,12 +3259,20 @@
     "named": false
   },
   {
+    "type": "opacity",
+    "named": false
+  },
+  {
     "type": "output",
     "named": false
   },
   {
     "type": "overlay",
     "named": false
+  },
+  {
+    "type": "override",
+    "named": true
   },
   {
     "type": "p",
@@ -2889,6 +3292,14 @@
   },
   {
     "type": "pin",
+    "named": false
+  },
+  {
+    "type": "pinned",
+    "named": false
+  },
+  {
+    "type": "popin",
     "named": false
   },
   {
@@ -3012,6 +3423,14 @@
     "named": true
   },
   {
+    "type": "silent",
+    "named": true
+  },
+  {
+    "type": "size",
+    "named": false
+  },
+  {
     "type": "source",
     "named": false
   },
@@ -3026,6 +3445,10 @@
   {
     "type": "str",
     "named": true
+  },
+  {
+    "type": "submap",
+    "named": false
   },
   {
     "type": "suppress_portal_warnings",
@@ -3201,6 +3624,10 @@
   },
   {
     "type": "x",
+    "named": false
+  },
+  {
+    "type": "xwayland",
     "named": false
   },
   {

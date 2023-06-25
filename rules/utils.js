@@ -40,11 +40,16 @@ function _specifier(name, pat, required) {
   return seq(name, optional(seq(token.immediate(":"), pat)));
 }
 
+function repeatn(rule, n) {
+  return seq(...Array(n).fill(rule));
+}
+
 module.exports = {
   node_with_immediate,
   immediate,
   arglist,
   sep1,
+  repeatn,
   specifier,
   optional_specifier,
 };
