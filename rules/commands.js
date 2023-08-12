@@ -38,9 +38,6 @@ module.exports = {
       seq(token.immediate("0x"), field("address", immediate($, "hex")))
     ),
 
-  layer_rule: (_$) => choice("blur", "unset"),
-  layer_identifier: ($) =>
-    choice($.address_specifier, alias($.word, $.layer_namespace)),
   command_layerrule: ($) =>
     command(
       "layerrule",

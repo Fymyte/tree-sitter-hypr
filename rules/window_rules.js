@@ -59,6 +59,12 @@ module.exports = {
   _rule_unset: (_$) => rule("unset"),
   _rule_nomaxsize: (_$) => rule("nomaxsize"),
   _rule_dimaround: (_$) => rule("dimaround"),
+  _rule_stayfocused: (_$) => rule("stayfocused"),
+  _rule_xray: ($) => rule("xray", choice($.unset, $.bool)),
+
+  _layerrule_blur: (_$) => rule("blur"),
+  _layerrule_ignorealpha: ($) => rule("ignorealpha", $.float),
+  _layerrule_ignorezero: (_$) => rule("ignorezero"),
 
   __rulev1_window_identifier: ($) => choice($.title_specifier, $.regex),
   _rulev1_window_identifier: ($) =>
@@ -116,7 +122,22 @@ module.exports = {
       $._rule_idleinhibit,
       $._rule_unset,
       $._rule_nomaxsize,
-      $._rule_dimaround
+      $._rule_dimaround,
+      $._rule_stayfocused,
+      $._rule_xray
+    ),
+
+  layer_identifier: ($) =>
+    choice($.address_specifier, alias($.word, $.layer_namespace)),
+
+  layer_rule: ($) =>
+    choice(
+      $._layerrule_blur,
+      $._rule_noanim,
+      $._layerrule_ignorealpha,
+      $._layerrule_ignorezero,
+      $._rule_xray,
+      $._rule_unset
     ),
 };
 

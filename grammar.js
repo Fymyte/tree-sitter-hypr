@@ -36,6 +36,7 @@ module.exports = grammar({
     _newline: (_$) => "\n",
 
     ...node_with_immediate("int", /[+-]?\d+/),
+    ...node_with_immediate("_100", /100/),
     ...node_with_immediate("float", /[+-]?\d+(?:\.\d*)?|[+-]?\.\d+/),
     ...node_with_immediate("hex", /[a-fA-F0-9]+/),
     // The regex only starts with the first non whitespace character
@@ -46,15 +47,12 @@ module.exports = grammar({
     // a greedy match with regex.
     mods: ($) => sep1($.mod, repeat(/[^,]/)),
     ...node_with_immediate("bool", choice(...VALID_BOOL)),
-    // bool: (_$) => choice(...VALID_BOOL),
     _object_id: ($) => alias(/\d+/, $.int),
 
-    // Use regex for 100 to not have higher precedence than other int
-    _100_percent: ($) => seq(alias(/100/, $.int), token.immediate("%")),
+    _negative_percent_percent: ($) => seq($.int, token.immediate("%-")),
     _negative_percent: ($) =>
       seq(
-        seq(/100%-/),
-        // token.immediate("-"),
+        alias($._negative_percent_percent, $.percent),
         immediate($, "int")
       ),
     percent: ($) => seq($.int, token.immediate("%")),
